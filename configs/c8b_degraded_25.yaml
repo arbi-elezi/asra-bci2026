@@ -1,0 +1,68 @@
+# C8b — Degraded 25%
+# Cost critic trained FROM SCRATCH on 25% of D_ref (Rule 5)
+# Seeds: 500
+# Purpose: DR stress test level 2
+# Critical: Cost critic trained FROM SCRATCH on 25% D_ref subset — NOT corrupted from full critic
+
+condition: C8b
+name: "Degraded Cost Model (25%)"
+description: "Cost critic trained from scratch on 25% D_ref — moderate data scarcity"
+
+environment:
+  type: "3d"
+  n_lanes: 3
+  lane_width: 3.7
+  dt: 0.1
+  max_steps: 500
+  obstacle_density: 18.0
+  use_shifted: false
+  cost_bias:
+    slow: 1.0
+    fast: 1.0
+    stationary: 1.0
+
+agent:
+  type: "ppo_frozen"
+  w0_checkpoint: "checkpoints/ppo_base/w0.pt"
+
+fra:
+  enabled: true
+  components:
+    dr:
+      enabled: true
+      # Degraded cost critic — trained from scratch on 25% D_ref
+      cost_critic_checkpoint: "checkpoints/cost_critic/degraded_25pct.pt"
+    fhr:
+      enabled: true
+      type: "fisher"
+      bc_enabled: true
+    fc:
+      enabled: true
+      frozen: false
+    td_fear:
+      enabled: true
+    uncertainty:
+      enabled: true
+    scl:
+      enabled: true
+    fms:
+      enabled: true
+    gtcc:
+      enabled: true
+    rlaf:
+      enabled: true
+      gate_threshold: 0.70
+
+seeds:
+  experiment: 500  # Stress test uses 500 seeds
+  start: 0
+
+gpu:
+  n_envs: 256
+  device: "cuda"
+
+logging:
+  save_dir: "results/C8b"
+  save_config: true
+  save_w0_hash: true
+  metrics: ["M1", "M10", "M10s", "M14"]

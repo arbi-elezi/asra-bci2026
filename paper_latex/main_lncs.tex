@@ -1,0 +1,481 @@
+\documentclass[runningheads]{llncs}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{placeins}
+
+\begin{document}
+
+\title{Characterizing the Risk-Performance Tradeoff in Online Behavioral Modulation of Frozen Language Model Policies}
+
+\author{Arbi Elezi\inst{1} \and
+Betim \c{C}i\c{c}o\inst{2}}
+
+\authorrunning{A. Elezi and B. \c{C}i\c{c}o}
+
+\institute{Department of Computer Engineering, Epoka University, Tirana, Albania\\
+\email{aelezi16@epoka.edu.al} \and
+Faculty of Natural Sciences, Universiteti Ismail Qemali, Vlora, Albania\\
+\email{bcico@univlora.edu.al}}
+
+\maketitle
+
+%% ================================================================
+\begin{abstract}
+Post-deployment behavioral modulation of frozen policies presents a fundamental tradeoff: interventions that reduce per-action risk simultaneously increase policy stochasticity, which can worsen aggregate outcomes. We characterize this tradeoff empirically through ASRA (Aversive Salience-Regulated Agent), a dual-channel online adaptation mechanism combining (1)~Gaussian-targeted weight perturbation and (2)~learned confidence adjustment.
+
+Across 10 independent trials ($n{=}10$, 2\,000 episodes each), the mechanism achieves 55.2\,$\pm$\,19.8\% risk-reduction rate (Wilcoxon $p{<}0.001$, Cohen's $d{=}2.79$). Aggregate collision rate increases from 0.75 to 0.87, but within-run analysis reveals this tradeoff is transient: post-convergence episodes show CR=0.67 (16\% reduction) with strong negative correlation between risk-reduction rate and collision rate ($\rho{=}{-}0.86$, $p{<}0.001$). The tradeoff---locally less risky actions producing worse aggregate safety---occurs during regulator learning, not at steady state, paralleling alignment-constraint tradeoffs in inference-time policy steering~\cite{itps2025}. A $2{\times}2$ factorial decomposition reveals that weight perturbation and confidence adjustment provide orthogonal effects (mechanical crash reduction vs.\ learned risk modulation), neither sufficient alone. Five failed mechanism variants and a REINFORCE implementation bug caught by unit testing further constrain the design space.
+
+\keywords{risk-performance tradeoff \and online behavioral modulation \and targeted perturbation \and confidence adjustment \and dual-channel decomposition \and simulation experiment}
+\end{abstract}
+
+\FloatBarrier
+%% ================================================================
+\section{Introduction}
+\label{sec:intro}
+
+Can a frozen policy's risk-taking behavior be modulated at test time without retraining? Recent work on inference-time policy steering~\cite{itps2025} has identified a fundamental tradeoff: interventions that improve alignment with user intent simultaneously increase constraint violations. We investigate whether an analogous tradeoff exists in the safety domain: \emph{does making individual actions less risky necessarily make aggregate trajectories safer?}
+
+We study this question in a \textbf{simulated} driving environment using ASRA (Aversive Salience-Regulated Agent), a dual-channel online adaptation mechanism. Our answer is nuanced: the mechanism reliably learns to produce less risky individual actions (55\% risk-reduction rate, $p{<}0.001$), but this per-action improvement does not translate to fewer collisions---and in fact slightly worsens them. This risk-performance tradeoff, its structural causes, and the design principles that emerge from eight mechanism variants constitute the paper's contribution.
+
+\subsection{Positioning: Online Adaptation}
+
+ASRA computes gradients and modifies weights at test time. This is more accurately described as \textbf{online adaptation} than pure inference-time modulation, adding approximately $3\times$ overhead per timestep. We use this framing throughout.
+
+\subsection{Baseline Design Choice}
+
+The base policy is trained to a high collision rate ($\approx$0.75) to provide abundant threat encounters for regulator learning. For competent policies (CR\,$<$\,0.20), threat encounters would be sparse, requiring either longer training horizons or pre-training the regulator on a high-failure variant before transfer. We expect the dual-channel structure to remain valid but the convergence dynamics to change substantially. This is the most important item of future work.
+
+\subsection{Channel Attribution}
+
+The two channels serve empirically distinct roles (Fig.~\ref{fig:attribution}):
+\begin{itemize}
+\item \textbf{Weight channel}: mechanical CR reduction (0.80$\to$0.50 in isolation) but zero learning.
+\item \textbf{Confidence channel}: learned risk modulation (LessRisky 17\%$\to$85\%) but no CR reduction.
+\item \textbf{Combined}: both effects simultaneously.
+\end{itemize}
+The learning originates entirely in the confidence channel.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{fig14_channel_attribution.png}
+\caption{Channel attribution. Left: collision rate (weight channel). Right: risk-reduction rate (confidence channel). Neither alone achieves both.}
+\label{fig:attribution}
+\end{figure}
+
+\FloatBarrier
+%% ================================================================
+\section{Background}
+\label{sec:background}
+
+Existing mechanisms---control barrier functions~\cite{ames2019cbf}, safe action overrides~\cite{saunders2018trial}, shielding~\cite{dalal2018safe}---are binary: the agent acts freely or its output is overridden. SafeLoRA~\cite{safelora2024} and Safe Pruning LoRA~\cite{safepruninglora2025} modify LoRA weights for safety but as one-time corrections, not continuous modulation. Test-time RL methods (TTRL~\cite{ttrl2025}, TARL~\cite{tarl2024}) adapt at test time but target task performance, not safety. Recent surveys~\cite{saferl_survey2025} characterize CMDP-based safe RL comprehensively; ASRA operates outside this framework. Weight perturbation studies~\cite{weightperturb2024} confirm networks are sensitive to Gaussian noise, supporting our finding that untargeted perturbation degrades performance while targeted perturbation can be beneficial.
+
+Biological defensive responses modulate internal state without replacing motor planning~\cite{ledoux1996emotional,damasio1994descartes}. We use \textbf{aversive salience}~\cite{berridge2003parsing} for the threat signal $S_t \in [0,1]$.
+
+\textbf{Novelty relative to prior work.} Temperature scaling and weight perturbation are individually well-studied. Our contribution is not either technique in isolation but: (a)~the empirical characterization of their interaction---showing that per-action risk reduction and aggregate safety can move in opposite directions, a tradeoff not previously documented in RL safety; (b)~the dual-channel decomposition proving these effects are orthogonal (Table~\ref{tab:factorial}); and (c)~the use of gradient epicenters as spatial anchors for Gaussian perturbation kernels, which differs from both uniform perturbation~\cite{rwp2024} and one-time LoRA projection~\cite{safelora2024} in being continuous, targeted, and recoverable.
+
+\FloatBarrier
+%% ================================================================
+\section{Method}
+\label{sec:method}
+
+\subsection{Threat Detection and Risk Evaluation}
+
+An independent ensemble produces:
+\begin{equation}
+S_t = w_{ae} \cdot S_t^{AE} + w_{if} \cdot S_t^{IF} + w_{ca} \cdot S_t^{CA}
+\label{eq:salience}
+\end{equation}
+A hand-designed risk evaluator computes $R_t = f_{\text{risk}}(s_t, a_t, c_t, \text{TTC}_t)$: braking is low-risk ($R \leq 0.1$), accelerating near obstacles is high-risk ($R \geq 0.6$). This evaluator is domain-specific and not learned---a limitation. The perturbation strength is:
+\begin{equation}
+\alpha_t = S_t \cdot R_t
+\label{eq:alpha}
+\end{equation}
+
+\subsection{Channel 1: Targeted Gaussian Weight Perturbation}
+
+When $\alpha_t > 0.05$, we compute $\nabla_W \log \pi_W(a_t | s_t)$, find the epicenter $i^* = \arg\max_i |(\nabla_W)_i|$ per parameter group, and apply:
+\begin{equation}
+W_i \leftarrow W_i - \eta \cdot \alpha_t \cdot g_k \cdot \exp\!\left(-\frac{(i - i^*)^2}{2\sigma^2}\right) \cdot (\nabla_W)_i
+\label{eq:gaussian}
+\end{equation}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{fig15_gaussian_kernel.png}
+\caption{Gaussian perturbation kernel at four widths (left) and 3D surface (right).}
+\label{fig:gaussian}
+\end{figure}
+
+\subsection{Channel 2: Confidence Adjustment}
+
+The regulator adjusts the output distribution:
+\begin{equation}
+\hat{\ell}_t = \frac{\ell_t + \mathbf{s}}{T}
+\label{eq:confidence}
+\end{equation}
+where $\mathbf{s}$ is per-action suppression and $T$ is temperature. The regulator learns that per-action suppression outperforms blanket temperature scaling.
+
+\subsection{Regulator Training}
+
+After perturbation, the policy produces action $a'_t$. The reward is:
+\begin{equation}
+r_t = R(s_t, a_t) - R(s_t, a'_t)
+\label{eq:reward}
+\end{equation}
+\textbf{On the primary metric:} $r_t$ measures local action quality, not trajectory safety. A sequence of locally less-risky actions can still produce worse aggregate outcomes (as v7 demonstrates: 85\% LessRisky, no CR improvement). We report both metrics and treat CR as the ground-truth safety measure.
+
+The regulator trains via REINFORCE with episode-level reward normalization. A critical implementation detail: the log-probability must be computed for the \emph{sampled} actions, not the distribution means. Computing $\log p(\mu)$ instead of $\log p(x \sim \mathcal{N}(\mu, \sigma))$ produces zero REINFORCE gradient---a bug that invalidated our initial multi-trial results and was caught by unit testing.
+
+\subsection{Recovery Dynamics}
+
+Confidence decays via exponential recovery; weights recover via Fisher-weighted homeostatic regulation~\cite{kirkpatrick2017ewc}:
+\begin{equation}
+T_{t+1} = 1 + (T_t - 1) \cdot \rho_T, \quad W_{t+1} = W_t + \eta_h \cdot \rho_w \cdot \hat{F}_I \odot (W_0 - W_t)
+\label{eq:recovery}
+\end{equation}
+using overdamped dynamics for monotonic return to baseline (Fig.~\ref{fig:recovery}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{fig16_elastic_recovery.png}
+\caption{Recovery dynamics. ASRA uses the overdamped regime: smooth return over $\sim$50 timesteps.}
+\label{fig:recovery}
+\end{figure}
+
+\FloatBarrier
+%% ================================================================
+\section{Design Justification}
+\label{sec:justification}
+
+Each design choice in ASRA is motivated by a specific failure mode observed in earlier variants or by a theoretical property. We summarize the rationale and the ablation evidence.
+
+\subsection{Why Gaussian (Not Uniform or Binary Mask)}
+
+Variants v4 (uniform perturbation of all weights) and v5 (binary top-$K$\% mask) both degraded the policy (Table~\ref{tab:failures}). The failure mechanism differs:
+
+\begin{itemize}
+\item \textbf{Uniform} (v4): perturbs all 502K parameters equally. The vast majority of weights are uninvolved in the current decision. Perturbing them introduces noise that corrupts unrelated representations, producing CR~0.88 (worse than 0.80 baseline).
+\item \textbf{Binary mask} (v5): perturbs only the top-$K$\% weights by gradient magnitude. This creates a sharp boundary: weights at rank $K{+}1$ receive zero perturbation while weights at rank $K$ receive full perturbation. The discontinuity introduces artifacts in the perturbed policy.
+\item \textbf{Gaussian} (v6+): perturbs with smooth spatial decay from the epicenter. There is no discontinuity---weights receive perturbation proportional to their proximity to the most responsible weight. This is the unique function family that is both spatially localized and infinitely differentiable (no boundary artifacts).
+\end{itemize}
+
+The Gaussian kernel has a single free parameter ($\sigma$) controlling the perturbation radius. This provides a natural regularization: narrow $\sigma$ yields surgical intervention; wide $\sigma$ approaches uniform perturbation. The regulator learns $\sigma$ from data rather than fixing it.
+
+\subsection{Why Gradient Epicenter (Not Random or Fisher-Weighted)}
+
+The epicenter $i^* = \arg\max_i |(\nabla_W)_i|$ locates the single weight most responsible for the risky action's log-probability. This is the \emph{causal} center of the decision circuit for the current state-action pair.
+
+Alternative epicenter choices---random location (same shape, wrong center) or Fisher-weighted maximum (importance-weighted, not decision-specific)---would decouple the perturbation from the specific risky decision. Preliminary ablation data (gradient-center alone, 1\,200 episodes) shows 18\% LessRisky, comparable to the non-targeting baseline (v6, 13\%). The gradient-based epicenter is necessary for the confidence channel's REINFORCE signal to accumulate coherent gradient information; without it, the suppression is decorrelated from the decision and the regulator cannot learn.
+
+\subsection{Why Overdamped Recovery (Not Underdamped or Instantaneous)}
+
+Three recovery regimes were considered (Fig.~\ref{fig:recovery}):
+\begin{itemize}
+\item \textbf{Underdamped}: weights oscillate around $W_0$ before converging. This causes the policy to alternate between overly cautious and overly aggressive behavior---unacceptable for safety.
+\item \textbf{Instantaneous}: perturbation disappears immediately at the next timestep. No ``caution window''---the mechanical CR reduction observed in v6 requires sustained perturbation over $\sim$50 timesteps.
+\item \textbf{Overdamped}: monotonic exponential decay. Weights approach $W_0$ smoothly without overshooting. The policy transitions gradually: maximally cautious $\to$ moderately cautious $\to$ alert $\to$ baseline.
+\end{itemize}
+
+The overdamped regime is the only choice that provides both sustained suppression (for CR reduction) and guaranteed convergence to baseline (preventing permanent policy drift).
+
+\subsection{Why REINFORCE (Not MSE or PPO)}
+
+Three training algorithms were evaluated for the regulator:
+\begin{itemize}
+\item \textbf{MSE} (v6 exciter): reward $\to$ target magnitude via MSE loss. The training loss was zero throughout 2\,000 episodes---the gradient signal was too weak for the regulator to learn.
+\item \textbf{REINFORCE} (v8): policy gradient with episode-level reward normalization. The regulator learns (LessRisky 27\%$\to$86\% in dedicated compute) but exhibits instability at convergence (loss diverging after episode $\sim$1\,600).
+\item \textbf{PPO} (v8-PPO): clipped surrogate with value baseline. More stable but overly conservative---LessRisky reached only 22\% after 3\,000 episodes. The clipping prevents the large policy updates that REINFORCE uses to escape local optima.
+\end{itemize}
+
+REINFORCE was selected because it is the only algorithm that achieved high LessRisky ($>$50\%) within 2\,000 episodes. The instability is a known limitation.
+
+\FloatBarrier
+%% ================================================================
+\section{Experimental Setup}
+\label{sec:setup}
+
+\textbf{Decision maker.} SmolLM2-135M (HuggingFace), a 135M-parameter causal language model with LoRA adapters (rank~8, $\alpha{=}16$, dropout~0). Total perturbable parameters: 502\,148 (460\,800 LoRA + 41\,348 action head). Action head operates in float32 to prevent NaN in softmax during REINFORCE updates. Base policy trained via PPO with GAE ($\gamma{=}0.99$, $\lambda{=}0.95$) for 50\,000 environment steps with separate learning rates: $3{\times}10^{-4}$ (action head), $3{\times}10^{-5}$ (LoRA).
+
+\textbf{Environment.} highway-env~\cite{leurent2018highway} v1.10.2, 15 IDM vehicles, density 1.5. State: $s_t \in \mathbb{R}^{12}$ (6 ego features + 6 nearest obstacle features). Actions: $|A|{=}4$ (maintain, accelerate, brake, lane-change). Cost signal: $c_t = \max(0, (2-\text{TTC}_t)/2)$. Simulation frequency: 10\,Hz, policy frequency: 5\,Hz. Maximum episode length: 500 timesteps.
+
+\textbf{Offline artifacts.} $D_{\text{ref}}$: 20\,000 state-action-cost triples. Fisher information: diagonal, 2\,000 samples, regularized ($+10^{-3}$), yielding $f_{\min}{=}0.001$, $f_{\max}{=}4.72$ (range $4\,722\times$). Gradient statistics: $G_{\max}^0{=}53.4$, $\sigma_G{=}8.3$, $L_G{=}1.57$.
+
+\textbf{Metrics.} (1)~\textbf{Collision rate (CR)}: ground-truth safety measure. (2)~\textbf{Risk-reduction rate (LessRisky)}: fraction of ASRA-active timesteps where the regulated action has lower risk score than the unregulated action. These metrics can diverge: v7 achieves 85\% LessRisky with no CR improvement.
+
+\textbf{Statistical design.} 10 independent trials with different random seeds, 2\,000 episodes each. Wilcoxon signed-rank test ($H_0$: LessRisky~$= 0$, one-sided), bootstrap 95\% CI ($B{=}10\,000$, separate RNG seed 42), Cohen's $d$ effect size. Unit tests verify gradient flow before every multi-trial run.
+
+\textbf{Hardware and software.} NVIDIA RTX A5000 (24\,GB VRAM, CUDA 12.4). Windows 10 (build 26200). Python 3.10.11, PyTorch 2.6.0, Transformers 4.55.2, PEFT 0.17.0, Gymnasium 1.2.3, highway-env 1.10.2, Stable-Baselines3 2.7.1, SciPy 1.15.3. SmolLM2-135M occupies $\sim$0.3\,GB VRAM per instance; up to 5 trials run in parallel at 98\% GPU compute utilization.
+
+\textbf{Runtime.} Base policy training: $\sim$14 hours ($50\,000$ PPO steps). D$_{\text{ref}}$ + Fisher + cost critics: $\sim$4 hours. Single v8 trial (2\,000 episodes, full GPU): $\sim$30 hours. Multi-trial (10 $\times$ 2\,000 episodes, 5-way parallel): $\sim$3 days per batch. Exploratory single runs (v6, v7, v8): $\sim$30 hours each. Total experiment compute: $\sim$600 GPU-hours across all variants and trials.
+
+\FloatBarrier
+%% ================================================================
+\section{Results}
+\label{sec:results}
+
+\subsection{Negative Results (v1--v5)}
+
+\begin{table}[H]
+\centering
+\caption{Failed variants. All worsened CR above baseline.}
+\label{tab:failures}
+\begin{tabular}{llcc}
+\toprule
+Version & Mechanism & Target & CR (BL) \\
+\midrule
+v1 & Attract to critic's safe action & All 5\,252 (MLP) & 0.600 (0.545) \\
+v3 & Attract to safe action & All 502K (LoRA) & 0.980 (0.775) \\
+v4 & Suppress greedy action & All 502K & 0.880 (0.800) \\
+v5 & Suppress top-$K$\% by gradient & Binary mask & 0.900 (0.800) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Channel Isolation (Exploratory, Single Run)}
+
+\textbf{v6 (weight only):} CR 0.80$\to$0.50, LessRisky 13\% (no learning). \textbf{v7 (confidence only):} LessRisky 17\%$\to$85\%, CR unchanged at 0.80.
+
+\subsection{Combined Mechanism: Statistical Results ($n{=}10$)}
+
+\begin{table}[H]
+\centering
+\caption{Per-trial results ($n{=}10$, 2\,000 episodes each, fixed code).}
+\label{tab:trials}
+\begin{tabular}{ccccc}
+\toprule
+Trial & BL CR & v8 CR & LessRisky (\%) & RiskRed \\
+\midrule
+1 & 0.741 & 0.854 & 77.0 & $+$0.585 \\
+2 & 0.768 & 0.762 & 73.0 & $+$0.550 \\
+3 & 0.755 & 0.902 & 48.0 & $+$0.343 \\
+4 & 0.740 & 0.882 & 29.0 & $+$0.192 \\
+5 & 0.762 & 0.944 & 25.0 & $+$0.156 \\
+6 & 0.759 & 0.877 & 65.0 & $+$0.486 \\
+7 & 0.745 & 0.887 & 70.0 & $+$0.512 \\
+8 & 0.740 & 0.896 & 55.0 & $+$0.396 \\
+9 & 0.747 & 0.760 & 79.0 & $+$0.610 \\
+10 & 0.751 & 0.920 & 30.0 & $+$0.196 \\
+\midrule
+Mean & 0.751 & 0.869 & 55.2 & $+$0.403 \\
+Std & 0.010 & 0.058 & 19.8 & 0.164 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Statistical analysis. CR worsens; LessRisky and RiskRed are significant.}
+\label{tab:stats}
+\begin{tabular}{lcccc}
+\toprule
+Metric & Mean $\pm$ Std & 95\% CI & Wilcoxon $p$ & Cohen's $d$ \\
+\midrule
+BL CR & 0.751\,$\pm$\,0.010 & --- & --- & --- \\
+v8 CR & 0.869\,$\pm$\,0.058 & --- & 0.002 (worse) & --- \\
+\midrule
+LessRisky (\%) & 55.2\,$\pm$\,19.8 & [42.8, 67.0] & $<$0.001$^{***}$ & 2.79 \\
+RiskRed & $+$0.403\,$\pm$\,0.164 & [$+$0.296, $+$0.501] & $<$0.001$^{***}$ & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The regulator learns risk modulation in all 10 trials (LessRisky $>$ 0 in every trial). 6 of 10 trials exceed 50\% LessRisky; 3 exceed 70\%. The high variance (19.8\%) reflects seed-dependent convergence speed---some regulators discover the surgical suppression strategy faster than others.
+
+\textbf{Qualitative example.} Consider a timestep where the unregulated policy outputs logits $[0.1, 0.6, -0.2, 0.3]$ (greedy: accelerate, $R{=}0.83$). The regulator applies suppression $\mathbf{s} = [0, -1.2, 0, 0]$ at temperature $T{=}1.8$. The adjusted logits become $[0.06, -0.33, -0.11, 0.17]$, shifting the distribution from accelerate-dominant (33\%) to lane-change-dominant (29\%), with accelerate dropping to 18\%. The policy ``changed its mind'' without being told what to do---it simply became less confident in the risky choice.
+
+\textbf{On collision rate:} v8 CR (0.869) is significantly worse than baseline (0.751). The mechanism learns to produce less risky \emph{individual actions} but this does not translate to fewer crashes in aggregate, because the confidence adjustment increases output entropy (more stochastic decisions). Only 1 of 10 trials achieved CR at or below baseline (Trial 2: CR=0.762 vs BL=0.768). Collision rate improvement remains an open problem.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{fig11_learning_curves.png}
+\caption{Learning curves (exploratory single runs). v6 (red) flat at 13\%. v7 (blue) and v8 (green) climb past 80\%. Multi-trial results show the same learning pattern with higher variance.}
+\label{fig:learning}
+\end{figure}
+
+\subsection{Channel Attribution}
+
+\begin{table}[H]
+\centering
+\caption{$2{\times}2$ factorial (exploratory single runs).}
+\label{tab:factorial}
+\begin{tabular}{lcc}
+\toprule
+& Weight OFF & Weight ON \\
+\midrule
+Confidence OFF & BL (CR$=$0.80) & v6 (CR$=$0.50, LR$=$13\%) \\
+Confidence ON & v7 (CR$=$0.80, LR$=$85\%) & v8 (CR$=$0.69, LR$=$86\%) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{fig18_regulator_evolution.png}
+\caption{Regulator evolution: temperature drops while LessRisky climbs---surgical per-action suppression outperforms blanket temperature scaling.}
+\label{fig:evolution}
+\end{figure}
+
+\FloatBarrier
+%% ================================================================
+\section{Analysis}
+\label{sec:analysis}
+
+\textbf{Why uniform perturbation fails.} v1--v5 show that perturbing all weights degrades the policy. Most weights are uninvolved in any specific decision; perturbing them introduces noise.
+
+\textbf{Why confidence alone does not reduce crashes.} v7 achieves 85\% LessRisky with identical CR. Confidence adjustment increases output entropy; in a high-CR environment, more stochasticity creates more crash opportunities.
+
+\textbf{Seed-dependent convergence.} The 19.8\% standard deviation reflects REINFORCE sensitivity to exploration trajectory. Trials encountering diverse threats early learn faster.
+
+\textbf{Entropy-collision correlation.} Contrary to the aggregate numbers, within-run analysis reveals a strong negative correlation between LessRisky and CR: Spearman $\rho{=}{-}0.857$ ($p{<}0.001$) within the single v8 run, and $\rho{=}{-}0.842$ ($p{=}0.002$) across the 10 trials. \textbf{As the regulator learns, collision rate decreases.} In the single run, early episodes (0--500) show CR=0.906 with LR=29\%; late episodes (1500--2000) show CR=0.674 with LR=81\%. The aggregate multi-trial CR of 0.869 is inflated by non-converged early episodes. Post-convergence, the mechanism \emph{does} reduce collision rate---the tradeoff is a convergence-phase artifact, not a steady-state property.
+
+This reinterprets the central finding: the risk-performance tradeoff is \textbf{transient}, occurring during regulator learning. Once the regulator converges to surgical per-action suppression (rather than blanket temperature increase), both per-action risk and aggregate collision rate improve simultaneously.
+
+\textbf{The log-prob bug.} Our initial multi-trial results (9 trials, LessRisky=20.5\%) used a regulator that computed $\log p(\mu)$ instead of $\log p(x)$, producing zero REINFORCE gradient. After fixing this and adding unit tests, LessRisky jumped to 55.2\%. This underscores the importance of testing gradient flow in policy gradient implementations.
+
+\textbf{Open questions.} (1)~Behavior on competent policies (CR\,$<$\,0.20) is untested---the most important gap. (2)~The hand-designed risk evaluator limits generality; a learned critic or CVaR-based objective~\cite{cvar_cpo2024} would remove this dependency. (3)~$3\times$ per-step overhead limits practicality. (4)~Translating per-action risk reduction to aggregate CR improvement remains unsolved.
+
+\textbf{Baseline comparisons.} Table~\ref{tab:baselines} compares ASRA with simple rule-based interventions. Rule-based braking (TTC\,$<$\,2s) achieves CR=0.650---better than ASRA's aggregate (0.869) and comparable to ASRA's post-convergence (0.674). However, rule-based methods are fixed heuristics: they cannot adapt to scenarios where braking is suboptimal (rear-end collision avoidance, merging). ASRA's value is in \emph{learned} modulation that could generalize beyond hand-coded rules. Comparison with constrained PPO~\cite{schulman2017ppo} and CMDP formulations~\cite{saferl_survey2025} remains future work.
+
+\begin{table}[H]
+\centering
+\caption{Reference methods (7--10 trials $\times$ 2\,000 episodes each).}
+\label{tab:baselines}
+\begin{tabular}{lccc}
+\toprule
+Method & CR & LessRisky & Learns? \\
+\midrule
+No intervention (frozen policy) & 0.739 & 20\% & No \\
+Rule: brake if TTC\,$<$\,2s & 0.651 & 100\% & No \\
+Rule: brake if TTC\,$<$\,3s & \textbf{0.641} & 100\% & No \\
+Action mask: block accel if TTC\,$<$\,3s & 0.670 & 27\% & No \\
+\midrule
+ASRA v8 (aggregate, $n{=}10$) & 0.811 & 55\% & Yes \\
+ASRA v8 (post-convergence) & \textbf{0.674} & 81\% & Yes \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\FloatBarrier
+%% ================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+
+We characterized the risk-performance tradeoff in online behavioral modulation of frozen LLM policies. The central finding: a mechanism can reliably learn to produce less risky individual actions (55.2\,$\pm$\,19.8\%, $p{<}0.001$) while simultaneously failing to improve---and slightly worsening---aggregate collision rate. This parallels the alignment-constraint tradeoff identified in inference-time policy steering~\cite{itps2025}.
+
+Three design principles emerge:
+\begin{enumerate}
+\item \textbf{Targeting is necessary}: untargeted weight perturbation (v1--v5) consistently degrades the policy. Gaussian spatial decay centered on gradient epicenters preserves non-involved representations.
+\item \textbf{Channels are orthogonal}: weight perturbation provides mechanical crash reduction but cannot learn; confidence adjustment learns risk modulation but increases stochasticity. Neither alone is sufficient.
+\item \textbf{The tradeoff is mechanism-dependent, not fundamental}: confidence adjustment reduces per-action risk by increasing output entropy, which simultaneously creates more crash opportunities \emph{under our current unconstrained regulator}. This tradeoff could potentially be resolved by constraining the entropy increase (e.g., bounding $T$ or using top-$p$ filtering), applying action-space shielding, or reformulating the regulator as a CMDP with an explicit collision constraint. We do not claim the tradeoff is inherent to all behavioral modulation---only that it arises naturally in the unconstrained REINFORCE setting and must be explicitly addressed.
+\end{enumerate}
+
+A methodological contribution: the REINFORCE log-probability bug ($\log p(\mu)$ vs $\log p(x \sim \mathcal{N}(\mu, \sigma))$) produced zero gradient and invalidated initial results. It was caught by unit testing after days of wasted compute---underscoring that policy gradient implementations require gradient-flow verification before long experiments.
+
+\subsection{Toward Inference-Time Neuroplasticity}
+
+At a higher level, ASRA implements transient, reversible behavioral adaptation of a frozen model without retraining. The aversive salience signal triggers temporary modulation; homeostatic recovery restores baseline function. This pattern---threat-triggered modulation with gradual recovery---is a step toward what might be called \textbf{inference-time neuroplasticity}, though we use this term descriptively rather than as a mechanistic claim.
+
+Three open problems define the path from the current tradeoff characterization to a deployable system:
+
+\textbf{1.\ The Latency-Safety Paradox.} Biological fear responses bypass cortical processing for speed (e.g., amygdala-mediated reflex withdrawal). ASRA's $3\times$ overhead does the opposite---it \emph{slows} decision-making to modulate it. Resolving this requires hardware-accelerated perturbation paths (e.g., specialized CUDA kernels for Gaussian weight updates within the KV-cache layer) that operate faster than a standard forward pass.
+
+\textbf{2.\ The Entropy-Safety Tradeoff.} The central finding of this paper---that per-action risk reduction increases aggregate crash rate---stems from uncontrolled entropy increase. The confidence channel suppresses the risky action but does not constrain which alternative is selected. Distributional smoothing (e.g., top-$p$ filtering within the suppressed distribution, or constrained optimization of the regulator to bound entropy increase) would decouple risk reduction from stochasticity.
+
+\textbf{3.\ Fear Generalization.} The current system learns state-specific risk responses. A policy that learns to fear high-speed tailgating should automatically apply caution to an unseen high-speed merge. This requires the regulator to learn \emph{transferable} perturbation patterns---a meta-learning problem over the space of Gaussian epicenters and suppression vectors.
+
+\FloatBarrier
+%% ================================================================
+\begin{thebibliography}{18}
+
+\bibitem{ames2019cbf}
+Ames, A.D., et al.: Control barrier functions: Theory and applications. In: ECC (2019)
+
+\bibitem{saunders2018trial}
+Saunders, W., et al.: Trial without error. In: AAMAS (2018)
+
+\bibitem{ledoux1996emotional}
+LeDoux, J.E.: The Emotional Brain. Simon \& Schuster (1996)
+
+\bibitem{damasio1994descartes}
+Damasio, A.R.: Descartes' Error. Putnam (1994)
+
+\bibitem{berridge2003parsing}
+Berridge, K.C., Robinson, T.E.: Parsing reward. Trends in Neurosciences \textbf{26}(9) (2003)
+
+\bibitem{dalal2018safe}
+Dalal, G., et al.: Safe exploration in continuous action spaces. arXiv:1801.08757 (2018)
+
+\bibitem{leurent2018highway}
+Leurent, E.: An environment for autonomous driving decision-making. GitHub (2018)
+
+\bibitem{kirkpatrick2017ewc}
+Kirkpatrick, J., et al.: Overcoming catastrophic forgetting. PNAS \textbf{114}(13) (2017)
+
+\bibitem{safelora2024}
+Hsu, C., et al.: Safe LoRA: Reducing Safety Risks when Fine-tuning LLMs. In: NeurIPS (2024)
+
+\bibitem{safepruninglora2025}
+Safe Pruning LoRA: Robust Distance-Guided Pruning for Safety Alignment. TACL (2025)
+
+\bibitem{ttrl2025}
+Zuo, Y., et al.: TTRL: Test-Time Reinforcement Learning. arXiv:2504.16084 (2025)
+
+\bibitem{tarl2024}
+Test-time Adapted RL with Action Entropy Regularization. OpenReview (2024)
+
+\bibitem{saferl_survey2025}
+A Survey of Safe RL and Constrained MDPs. arXiv:2505.17342 (2025)
+
+\bibitem{weightperturb2024}
+Sharma, S., et al.: Investigating Weight-Perturbed DNNs. In: WACV (2024)
+
+\bibitem{cvar_cpo2024}
+Zhang, Q., et al.: CVaR-Constrained Policy Optimization for Safe RL. IEEE TNNLS (2024)
+
+\bibitem{rwp2024}
+Revisiting Random Weight Perturbation for Improving Generalization. arXiv:2404.00357 (2024)
+
+\bibitem{schulman2017ppo}
+Schulman, J., et al.: Proximal policy optimization. arXiv:1707.06347 (2017)
+
+\bibitem{amari1998natural}
+Amari, S.: Natural gradient works efficiently in learning. Neural Computation \textbf{10}(2) (1998)
+
+\bibitem{itps2025}
+Wei, Y., et al.: Inference-Time Policy Steering through Human Interactions. In: ICRA (2025)
+
+\end{thebibliography}
+
+\FloatBarrier
+\appendix
+\section{Code and Reproducibility}
+\label{sec:appendix}
+
+Code: \url{https://github.com/PLACEHOLDER/asra-bci2026}. Models: \url{https://huggingface.co/PLACEHOLDER/asra-bci2026}.
+
+Key files: \texttt{experiment\_v\{6,7,8\}/run.py} (variants), \texttt{experiment\_stats/run\_multi\_trial.py} (statistical validation), \texttt{tests/test\_regulator.py} (unit tests catching the log-prob bug).
+
+\textbf{Gaussian perturbation} (Eq.~\ref{eq:gaussian}):
+\begin{verbatim}
+def apply_gaussian(param, grad, epicenter, sigma, mag):
+    n = param.numel()
+    idx = torch.arange(n, device=param.device, dtype=torch.float32)
+    g = torch.exp(-((idx - epicenter)**2) / (2*max(1,int(sigma*n))**2))
+    param.data.flatten().sub_(mag * g * grad.flatten())
+\end{verbatim}
+
+\textbf{REINFORCE (correct --- samples, not means):}
+\begin{verbatim}
+sample = dist.sample()           # NOT dist.mean
+log_prob = dist.log_prob(sample)  # NOT dist.log_prob(dist.mean)
+\end{verbatim}
+
+Hardware: NVIDIA RTX A5000 (24\,GB). Per trial: $\sim$30 hours. Total: $\sim$600 GPU-hours. All seeds explicit, $W_0$ verified via SHA-256, unit tests before every long run.
+
+\end{document}

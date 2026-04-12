@@ -1,0 +1,74 @@
+# C4 — No-GTCC (Ablation A2)
+# FC frozen post-seed initialization. No GTCC calibration loop.
+# Seeds: 1000
+# Purpose: Test whether GTCC improves FC over frozen seed.
+# Isolation: ONLY FC frozen. Everything else identical to C2 (Rule 4).
+
+condition: C4
+name: "No-GTCC"
+description: "Fear classifier frozen — no GTCC calibration loop"
+
+environment:
+  type: "3d"
+  n_lanes: 3
+  lane_width: 3.7
+  dt: 0.1
+  max_steps: 500
+  obstacle_density: 18.0
+  use_shifted: false
+  cost_bias:
+    slow: 1.0
+    fast: 1.0
+    stationary: 1.0
+
+agent:
+  type: "ppo_frozen"
+  w0_checkpoint: "checkpoints/ppo_base/w0.pt"
+
+fra:
+  enabled: true
+  components:
+    dr:
+      enabled: true
+      eta_f: null  # Set after hyperparameter search
+    fhr:
+      enabled: true
+      type: "fisher"
+      eta_h: null
+      bc_enabled: true
+      eta_bc: null
+    fc:
+      enabled: true
+      frozen: true  # CHANGED — FC frozen, this is the ablation
+      n_ft: null
+    td_fear:
+      enabled: true
+      gamma_f: null
+    uncertainty:
+      enabled: true
+      beta: null
+    scl:
+      enabled: true
+      tau: null
+      k: null
+    fms:
+      enabled: true
+    gtcc:
+      enabled: true  # GTCC still enabled but FC won't update (frozen)
+    rlaf:
+      enabled: true
+      gate_threshold: 0.70
+
+seeds:
+  experiment: 1000
+  start: 0
+
+gpu:
+  n_envs: 256
+  device: "cuda"
+
+logging:
+  save_dir: "results/C4"
+  save_config: true
+  save_w0_hash: true
+  metrics: ["M1", "M2", "M8"]

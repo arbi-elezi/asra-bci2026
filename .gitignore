@@ -1,0 +1,58 @@
+# Models and weights (on HuggingFace, not GitHub)
+*.pt
+*.bin
+*.safetensors
+*.onnx
+*.gguf
+models/
+checkpoints/
+checkpoints_v2/
+
+# Data files (on HuggingFace)
+*.npy
+data/
+
+# Paper artifacts (private until publishing)
+paper_latex/*.pdf
+paper_latex/*.aux
+paper_latex/*.log
+paper_latex/*.out
+paper_latex/*.png
+paper_latex/*.jpg
+paper_latex/*.bbl
+paper_latex/*.blg
+paper_latex/*.synctex*
+figures/
+demo.mp4
+
+# Experiment results/outputs (on HuggingFace)
+*/SmolLM2-135M/
+*/TinyLlama-1.1B/
+*/Qwen*
+*_partial.json
+results/
+**/results/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+
+# Claude / IDE
+.claude/
+CLAUDE.md
+.huggingface.env
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# MiKTeX installer
+miktex_setup.exe

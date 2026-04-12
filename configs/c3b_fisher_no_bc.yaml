@@ -1,0 +1,74 @@
+# C3b — Fisher-no-BC (Ablation A1b / Remark 1 test)
+# Fisher restoring force without BC term
+# Seeds: 1000
+# Purpose: Isolate BC contribution. Test Remark 1 (H11).
+# Isolation: ONLY BC removed. Everything else identical to C2 (Rule 4).
+
+condition: C3b
+name: "Fisher-no-BC"
+description: "Fisher homeostatic regulator without behavioral cloning term"
+
+environment:
+  type: "3d"
+  n_lanes: 3
+  lane_width: 3.7
+  dt: 0.1
+  max_steps: 500
+  obstacle_density: 18.0
+  use_shifted: false
+  cost_bias:
+    slow: 1.0
+    fast: 1.0
+    stationary: 1.0
+
+agent:
+  type: "ppo_frozen"
+  w0_checkpoint: "checkpoints/ppo_base/w0.pt"
+
+fra:
+  enabled: true
+  components:
+    dr:
+      enabled: true
+      eta_f: null  # Set after hyperparameter search
+    fhr:
+      enabled: true
+      type: "fisher"  # Same as C2
+      eta_h: null
+      bc_enabled: false  # CHANGED — BC disabled, this is the ablation
+      eta_bc: null
+    fc:
+      enabled: true
+      frozen: false
+      n_ft: null
+    td_fear:
+      enabled: true
+      gamma_f: null
+    uncertainty:
+      enabled: true
+      beta: null
+    scl:
+      enabled: true
+      tau: null
+      k: null
+    fms:
+      enabled: true
+    gtcc:
+      enabled: true
+    rlaf:
+      enabled: true
+      gate_threshold: 0.70
+
+seeds:
+  experiment: 1000
+  start: 0
+
+gpu:
+  n_envs: 256
+  device: "cuda"
+
+logging:
+  save_dir: "results/C3b"
+  save_config: true
+  save_w0_hash: true
+  metrics: ["M1", "M3", "M8", "M9"]

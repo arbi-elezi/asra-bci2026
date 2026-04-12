@@ -1,0 +1,44 @@
+# C1 — Base Only (Control)
+# PPO (W_0) only — no FRA components active
+# Seeds: 1000
+# Purpose: Control baseline
+
+condition: C1
+name: "Base Only"
+description: "PPO baseline with frozen W_0, no safety mechanism"
+
+environment:
+  type: "3d"  # VectorizedDrivingEnv3D
+  n_lanes: 3
+  lane_width: 3.7
+  dt: 0.1
+  max_steps: 500
+  obstacle_density: 18.0
+  use_shifted: false
+  cost_bias:
+    slow: 1.0
+    fast: 1.0
+    stationary: 1.0
+
+agent:
+  type: "ppo_frozen"
+  # No FRA wrapper — just W_0
+  w0_checkpoint: "checkpoints/ppo_base/w0.pt"
+
+fra:
+  enabled: false
+
+seeds:
+  experiment: 1000
+  start: 0
+  # Uses seeds s_0 through s_999 from master seed set
+
+gpu:
+  n_envs: 256  # Parallel environments on A5000
+  device: "cuda"
+
+logging:
+  save_dir: "results/C1"
+  save_config: true
+  save_w0_hash: true
+  metrics: ["M1", "M8"]  # CR and task reward only for baseline

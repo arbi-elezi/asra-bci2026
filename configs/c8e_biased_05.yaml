@@ -1,0 +1,69 @@
+# C8e — Biased Cost Model (x0.5)
+# Cost critic from full D_ref, fast-obstacle costs x 0.5 during training
+# Seeds: 500
+# Purpose: Moderate systematic bias. Dose-response comparison with C8d.
+# Critical: Full D_ref used, but fast-obstacle cost LABELS multiplied by 0.5 during critic training (Rule 5)
+
+condition: C8e
+name: "Biased Cost Model (x0.5)"
+description: "Full D_ref, fast-obstacle cost labels x 0.5 — moderate systematic bias"
+
+environment:
+  type: "3d"
+  n_lanes: 3
+  lane_width: 3.7
+  dt: 0.1
+  max_steps: 500
+  obstacle_density: 18.0
+  use_shifted: false
+  # These biases are for CRITIC TRAINING ONLY — true env cost is unbiased
+  cost_bias:
+    slow: 1.0
+    fast: 0.5   # MODERATE BIAS — fast obstacles undercosted
+    stationary: 1.0
+
+agent:
+  type: "ppo_frozen"
+  w0_checkpoint: "checkpoints/ppo_base/w0.pt"
+
+fra:
+  enabled: true
+  components:
+    dr:
+      enabled: true
+      # Uses biased cost critic — this is the point of the test
+      cost_critic_checkpoint: "checkpoints/cost_critic/biased_fast_05.pt"
+    fhr:
+      enabled: true
+      type: "fisher"
+      bc_enabled: true
+    fc:
+      enabled: true
+      frozen: false
+    td_fear:
+      enabled: true
+    uncertainty:
+      enabled: true
+    scl:
+      enabled: true
+    fms:
+      enabled: true
+    gtcc:
+      enabled: true
+    rlaf:
+      enabled: true
+      gate_threshold: 0.70
+
+seeds:
+  experiment: 500  # Stress test uses 500 seeds
+  start: 0
+
+gpu:
+  n_envs: 256
+  device: "cuda"
+
+logging:
+  save_dir: "results/C8e"
+  save_config: true
+  save_w0_hash: true
+  metrics: ["M1", "M10", "M10s", "M14"]

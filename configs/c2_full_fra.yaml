@@ -1,0 +1,75 @@
+# C2 — Full FRA (Primary)
+# All components active
+# Seeds: 1000
+# Purpose: Primary experimental condition
+
+condition: C2
+name: "Full FRA"
+description: "Complete FRA system — all components active"
+
+environment:
+  type: "3d"
+  n_lanes: 3
+  lane_width: 3.7
+  dt: 0.1
+  max_steps: 500
+  obstacle_density: 18.0
+  use_shifted: false
+  cost_bias:
+    slow: 1.0
+    fast: 1.0
+    stationary: 1.0
+
+agent:
+  type: "ppo_frozen"
+  w0_checkpoint: "checkpoints/ppo_base/w0.pt"
+
+fra:
+  enabled: true
+  components:
+    dr:
+      enabled: true
+      eta_f: null  # Set after hyperparameter search
+    fhr:
+      enabled: true
+      type: "fisher"  # "fisher" or "l2"
+      eta_h: null
+      bc_enabled: true
+      eta_bc: null
+    fc:
+      enabled: true
+      frozen: false  # NOT frozen — GTCC active
+      n_ft: null
+    td_fear:
+      enabled: true
+      gamma_f: null
+    uncertainty:
+      enabled: true
+      beta: null
+    scl:
+      enabled: true
+      tau: null
+      k: null
+    fms:
+      enabled: true
+    gtcc:
+      enabled: true
+    rlaf:
+      enabled: true
+      gate_threshold: 0.70  # M7 gate
+
+seeds:
+  experiment: 1000
+  start: 0
+
+gpu:
+  n_envs: 256
+  device: "cuda"
+
+logging:
+  save_dir: "results/C2"
+  save_config: true
+  save_w0_hash: true
+  # Rule 6: M3 and M13 for EVERY timestep of EVERY episode
+  metrics: ["M1", "M2", "M3", "M4", "M5", "M6", "M7", "M8", "M9", "M10", "M10s", "M11", "M12", "M13"]
+  per_timestep_metrics: ["M3", "M13"]  # Mandatory per Rule 6

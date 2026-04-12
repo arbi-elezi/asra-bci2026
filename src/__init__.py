@@ -1,0 +1,1 @@
+# FRA — Fear-Regulated Agent
