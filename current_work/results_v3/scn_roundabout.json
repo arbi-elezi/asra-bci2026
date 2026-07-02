@@ -1,0 +1,1275 @@
+{
+  "scenario": "roundabout",
+  "base_path": "current_work\\base_policies\\scn_roundabout_seed0_final.pt",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "n_ep": 40,
+  "g_grid": [
+    0.0,
+    0.5,
+    1.0,
+    2.0,
+    3.0,
+    5.0,
+    8.0
+  ],
+  "ttc_grid": [
+    0.0,
+    1.0,
+    2.0,
+    3.0,
+    4.0
+  ],
+  "pbrake_grid": [
+    0.0,
+    0.1,
+    0.3,
+    0.6,
+    1.0
+  ],
+  "results": [
+    {
+      "method": "asra",
+      "gain": 8.0,
+      "decode": "greedy",
+      "seed": 0,
+      "cr": 0.55,
+      "speed": 1.5566078916585124
+    },
+    {
+      "method": "asra",
+      "gain": 2.0,
+      "decode": "greedy",
+      "seed": 0,
+      "cr": 0.5,
+      "speed": 1.8528104945483386
+    },
+    {
+      "method": "asra",
+      "gain": 0.5,
+      "decode": "greedy",
+      "seed": 0,
+      "cr": 0.5,
+      "speed": 1.844612475824728
+    },
+    {
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "sample",
+      "seed": 0,
+      "cr": 0.525,
+      "speed": 1.6841121483904586
+    },
+    {
+      "method": "asra",
+      "gain": 1.0,
+      "decode": "greedy",
+      "seed": 0,
+      "cr": 0.5,
+      "speed": 1.8545700816112896
+    },
+    {
+      "method": "asra",
+      "gain": 3.0,
+      "decode": "greedy",
+      "seed": 0,
+      "cr": 0.5,
+      "speed": 1.7249619606755964
+    },
+    {
+      "method": "asra",
+      "gain": 5.0,
+      "decode": "greedy",
+      "seed": 0,
+      "cr": 0.475,
+      "speed": 1.3125413397420689
+    },
+    {
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "greedy",
+      "seed": 0,
+      "cr": 0.45,
+      "speed": 1.0282594901740978
+    },
+    {
+      "method": "asra",
+      "gain": 1.0,
+      "decode": "sample",
+      "seed": 0,
+      "cr": 0.525,
+      "speed": 1.9392857113820967
+    },
+    {
+      "method": "asra",
+      "gain": 2.0,
+      "decode": "sample",
+      "seed": 0,
+      "cr": 0.5,
+      "speed": 1.965160382032232
+    },
+    {
+      "method": "asra",
+      "gain": 5.0,
+      "decode": "sample",
+      "seed": 0,
+      "cr": 0.525,
+      "speed": 1.5211337399135378
+    },
+    {
+      "method": "asra",
+      "gain": 8.0,
+      "decode": "sample",
+      "seed": 0,
+      "cr": 0.55,
+      "speed": 2.053090751894154
+    },
+    {
+      "method": "asra",
+      "gain": 3.0,
+      "decode": "sample",
+      "seed": 0,
+      "cr": 0.5,
+      "speed": 1.431963814322468
+    },
+    {
+      "method": "asra",
+      "gain": 0.5,
+      "decode": "sample",
+      "seed": 0,
+      "cr": 0.45,
+      "speed": 1.4485680225141153
+    },
+    {
+      "method": "baseline",
+      "kind": "noop_greedy",
+      "seed": 0,
+      "cr": 0.45,
+      "speed": 1.0282594901740978
+    },
+    {
+      "method": "baseline",
+      "kind": "noop_sample",
+      "seed": 0,
+      "cr": 0.45,
+      "speed": 1.1188389073293825
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 0.0,
+      "seed": 0,
+      "cr": 0.6,
+      "speed": 2.2516908733118703
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 1.0,
+      "seed": 0,
+      "cr": 0.525,
+      "speed": 1.3014597333389628
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 2.0,
+      "seed": 0,
+      "cr": 0.5,
+      "speed": 1.093900809278669
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 3.0,
+      "seed": 0,
+      "cr": 0.55,
+      "speed": 1.3706389196507711
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 4.0,
+      "seed": 0,
+      "cr": 0.55,
+      "speed": 1.1636180371252216
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.0,
+      "seed": 0,
+      "cr": 0.5,
+      "speed": 1.9693877423952588
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.1,
+      "seed": 0,
+      "cr": 0.475,
+      "speed": 1.3528108694927616
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.3,
+      "seed": 0,
+      "cr": 0.475,
+      "speed": 0.8346265792755716
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.6,
+      "seed": 0,
+      "cr": 0.525,
+      "speed": 0.9632636457934332
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 1.0,
+      "seed": 0,
+      "cr": 0.525,
+      "speed": 0.8201731456891878
+    },
+    {
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "greedy",
+      "seed": 1,
+      "cr": 0.5,
+      "speed": 1.291180928768074
+    },
+    {
+      "method": "asra",
+      "gain": 0.5,
+      "decode": "greedy",
+      "seed": 1,
+      "cr": 0.425,
+      "speed": 1.3201087163210727
+    },
+    {
+      "method": "asra",
+      "gain": 1.0,
+      "decode": "greedy",
+      "seed": 1,
+      "cr": 0.425,
+      "speed": 1.3247216767819636
+    },
+    {
+      "method": "asra",
+      "gain": 2.0,
+      "decode": "greedy",
+      "seed": 1,
+      "cr": 0.45,
+      "speed": 1.3610534718925185
+    },
+    {
+      "method": "asra",
+      "gain": 3.0,
+      "decode": "greedy",
+      "seed": 1,
+      "cr": 0.45,
+      "speed": 1.2446295513387227
+    },
+    {
+      "method": "asra",
+      "gain": 5.0,
+      "decode": "greedy",
+      "seed": 1,
+      "cr": 0.475,
+      "speed": 1.181291569794496
+    },
+    {
+      "method": "asra",
+      "gain": 8.0,
+      "decode": "greedy",
+      "seed": 1,
+      "cr": 0.5,
+      "speed": 1.3132183612699795
+    },
+    {
+      "method": "asra",
+      "gain": 0.5,
+      "decode": "sample",
+      "seed": 1,
+      "cr": 0.475,
+      "speed": 1.469820855499354
+    },
+    {
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "sample",
+      "seed": 1,
+      "cr": 0.45,
+      "speed": 1.4519075578961174
+    },
+    {
+      "method": "asra",
+      "gain": 3.0,
+      "decode": "sample",
+      "seed": 1,
+      "cr": 0.5,
+      "speed": 1.7650458410429963
+    },
+    {
+      "method": "asra",
+      "gain": 2.0,
+      "decode": "sample",
+      "seed": 1,
+      "cr": 0.45,
+      "speed": 1.4797750975691273
+    },
+    {
+      "method": "asra",
+      "gain": 1.0,
+      "decode": "sample",
+      "seed": 1,
+      "cr": 0.425,
+      "speed": 1.62632769064427
+    },
+    {
+      "method": "asra",
+      "gain": 8.0,
+      "decode": "sample",
+      "seed": 1,
+      "cr": 0.525,
+      "speed": 1.5539876496478766
+    },
+    {
+      "method": "asra",
+      "gain": 5.0,
+      "decode": "sample",
+      "seed": 1,
+      "cr": 0.45,
+      "speed": 1.0444957277905953
+    },
+    {
+      "method": "baseline",
+      "kind": "noop_greedy",
+      "seed": 1,
+      "cr": 0.5,
+      "speed": 1.291180928768074
+    },
+    {
+      "method": "baseline",
+      "kind": "noop_sample",
+      "seed": 1,
+      "cr": 0.475,
+      "speed": 1.48899798958464
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 0.0,
+      "seed": 1,
+      "cr": 0.45,
+      "speed": 1.2831630078565799
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 1.0,
+      "seed": 1,
+      "cr": 0.475,
+      "speed": 1.377074771738911
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 2.0,
+      "seed": 1,
+      "cr": 0.475,
+      "speed": 1.1308910358666195
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.0,
+      "seed": 1,
+      "cr": 0.55,
+      "speed": 2.031577803521924
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 3.0,
+      "seed": 1,
+      "cr": 0.475,
+      "speed": 1.2081694129227838
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 4.0,
+      "seed": 1,
+      "cr": 0.425,
+      "speed": 0.7313712220976908
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.1,
+      "seed": 1,
+      "cr": 0.45,
+      "speed": 1.4170938110277493
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.3,
+      "seed": 1,
+      "cr": 0.525,
+      "speed": 1.4453857037361397
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.6,
+      "seed": 1,
+      "cr": 0.475,
+      "speed": 0.934896800043209
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 1.0,
+      "seed": 1,
+      "cr": 0.45,
+      "speed": 0.8809475611057473
+    },
+    {
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "greedy",
+      "seed": 2,
+      "cr": 0.5,
+      "speed": 1.1393854965422314
+    },
+    {
+      "method": "asra",
+      "gain": 0.5,
+      "decode": "greedy",
+      "seed": 2,
+      "cr": 0.475,
+      "speed": 1.6088979844528086
+    },
+    {
+      "method": "asra",
+      "gain": 1.0,
+      "decode": "greedy",
+      "seed": 2,
+      "cr": 0.475,
+      "speed": 1.6173069856633862
+    },
+    {
+      "method": "asra",
+      "gain": 2.0,
+      "decode": "greedy",
+      "seed": 2,
+      "cr": 0.475,
+      "speed": 1.6497243600426337
+    },
+    {
+      "method": "asra",
+      "gain": 3.0,
+      "decode": "greedy",
+      "seed": 2,
+      "cr": 0.475,
+      "speed": 1.524154416063281
+    },
+    {
+      "method": "asra",
+      "gain": 5.0,
+      "decode": "greedy",
+      "seed": 2,
+      "cr": 0.475,
+      "speed": 1.347783793844116
+    },
+    {
+      "method": "asra",
+      "gain": 8.0,
+      "decode": "greedy",
+      "seed": 2,
+      "cr": 0.55,
+      "speed": 1.570321068283288
+    },
+    {
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "sample",
+      "seed": 2,
+      "cr": 0.525,
+      "speed": 1.4834994493404412
+    },
+    {
+      "method": "asra",
+      "gain": 1.0,
+      "decode": "sample",
+      "seed": 2,
+      "cr": 0.55,
+      "speed": 1.9214572428587586
+    },
+    {
+      "method": "asra",
+      "gain": 0.5,
+      "decode": "sample",
+      "seed": 2,
+      "cr": 0.525,
+      "speed": 1.7179885446267327
+    },
+    {
+      "method": "asra",
+      "gain": 2.0,
+      "decode": "sample",
+      "seed": 2,
+      "cr": 0.475,
+      "speed": 1.4610299896464283
+    },
+    {
+      "method": "asra",
+      "gain": 3.0,
+      "decode": "sample",
+      "seed": 2,
+      "cr": 0.525,
+      "speed": 1.710428940978721
+    },
+    {
+      "method": "asra",
+      "gain": 5.0,
+      "decode": "sample",
+      "seed": 2,
+      "cr": 0.5,
+      "speed": 1.323189596512237
+    },
+    {
+      "method": "asra",
+      "gain": 8.0,
+      "decode": "sample",
+      "seed": 2,
+      "cr": 0.6,
+      "speed": 2.0384149793457045
+    },
+    {
+      "method": "baseline",
+      "kind": "noop_greedy",
+      "seed": 2,
+      "cr": 0.5,
+      "speed": 1.1393854965422314
+    },
+    {
+      "method": "baseline",
+      "kind": "noop_sample",
+      "seed": 2,
+      "cr": 0.525,
+      "speed": 1.7554765782703605
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 0.0,
+      "seed": 2,
+      "cr": 0.525,
+      "speed": 1.376846309448935
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 1.0,
+      "seed": 2,
+      "cr": 0.5,
+      "speed": 1.292003691514826
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 3.0,
+      "seed": 2,
+      "cr": 0.6,
+      "speed": 1.1641887457480256
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 2.0,
+      "seed": 2,
+      "cr": 0.55,
+      "speed": 1.3449106017856003
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.0,
+      "seed": 2,
+      "cr": 0.525,
+      "speed": 1.6247312040396942
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 4.0,
+      "seed": 2,
+      "cr": 0.525,
+      "speed": 0.7973080803881081
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.3,
+      "seed": 2,
+      "cr": 0.575,
+      "speed": 1.1431995933159373
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.1,
+      "seed": 2,
+      "cr": 0.5,
+      "speed": 1.134011518170173
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.6,
+      "seed": 2,
+      "cr": 0.6,
+      "speed": 1.1970462314867767
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 1.0,
+      "seed": 2,
+      "cr": 0.5,
+      "speed": 0.7908714543654256
+    },
+    {
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "greedy",
+      "seed": 3,
+      "cr": 0.325,
+      "speed": 0.3819678618116831
+    },
+    {
+      "method": "asra",
+      "gain": 0.5,
+      "decode": "greedy",
+      "seed": 3,
+      "cr": 0.2,
+      "speed": 0.4085895671217056
+    },
+    {
+      "method": "asra",
+      "gain": 1.0,
+      "decode": "greedy",
+      "seed": 3,
+      "cr": 0.2,
+      "speed": 0.40955842902610956
+    },
+    {
+      "method": "asra",
+      "gain": 2.0,
+      "decode": "greedy",
+      "seed": 3,
+      "cr": 0.2,
+      "speed": 0.40994390465293334
+    },
+    {
+      "method": "asra",
+      "gain": 5.0,
+      "decode": "greedy",
+      "seed": 3,
+      "cr": 0.25,
+      "speed": 0.5189084388343912
+    },
+    {
+      "method": "asra",
+      "gain": 8.0,
+      "decode": "greedy",
+      "seed": 3,
+      "cr": 0.3,
+      "speed": 0.5904737431012176
+    },
+    {
+      "method": "asra",
+      "gain": 3.0,
+      "decode": "greedy",
+      "seed": 3,
+      "cr": 0.2,
+      "speed": 0.28793565537523946
+    },
+    {
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "sample",
+      "seed": 3,
+      "cr": 0.3,
+      "speed": 1.1802298072249706
+    },
+    {
+      "method": "asra",
+      "gain": 0.5,
+      "decode": "sample",
+      "seed": 3,
+      "cr": 0.3,
+      "speed": 0.8533072520442755
+    },
+    {
+      "method": "asra",
+      "gain": 1.0,
+      "decode": "sample",
+      "seed": 3,
+      "cr": 0.3,
+      "speed": 1.1099328182923727
+    },
+    {
+      "method": "asra",
+      "gain": 2.0,
+      "decode": "sample",
+      "seed": 3,
+      "cr": 0.275,
+      "speed": 1.0522116948277955
+    },
+    {
+      "method": "baseline",
+      "kind": "noop_greedy",
+      "seed": 3,
+      "cr": 0.325,
+      "speed": 0.3819678618116831
+    },
+    {
+      "method": "asra",
+      "gain": 8.0,
+      "decode": "sample",
+      "seed": 3,
+      "cr": 0.35,
+      "speed": 1.025221515826044
+    },
+    {
+      "method": "asra",
+      "gain": 3.0,
+      "decode": "sample",
+      "seed": 3,
+      "cr": 0.275,
+      "speed": 0.6582418463588221
+    },
+    {
+      "method": "asra",
+      "gain": 5.0,
+      "decode": "sample",
+      "seed": 3,
+      "cr": 0.3,
+      "speed": 0.8821039568643977
+    },
+    {
+      "method": "baseline",
+      "kind": "noop_sample",
+      "seed": 3,
+      "cr": 0.275,
+      "speed": 0.7377252308603014
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 0.0,
+      "seed": 3,
+      "cr": 0.275,
+      "speed": 0.7143269448293739
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 1.0,
+      "seed": 3,
+      "cr": 0.375,
+      "speed": 0.8770483579399084
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 4.0,
+      "seed": 3,
+      "cr": 0.35,
+      "speed": 0.4733380807925819
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 3.0,
+      "seed": 3,
+      "cr": 0.325,
+      "speed": 0.41264930569256075
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.1,
+      "seed": 3,
+      "cr": 0.325,
+      "speed": 0.6302024283487645
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 2.0,
+      "seed": 3,
+      "cr": 0.275,
+      "speed": 0.41399462171764057
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.0,
+      "seed": 3,
+      "cr": 0.325,
+      "speed": 1.283066052201061
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.3,
+      "seed": 3,
+      "cr": 0.35,
+      "speed": 0.5549073872949222
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.6,
+      "seed": 3,
+      "cr": 0.425,
+      "speed": 0.5896461867471718
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 1.0,
+      "seed": 3,
+      "cr": 0.375,
+      "speed": 0.3827665966944205
+    },
+    {
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "greedy",
+      "seed": 4,
+      "cr": 0.45,
+      "speed": 1.2721432222312785
+    },
+    {
+      "method": "asra",
+      "gain": 0.5,
+      "decode": "greedy",
+      "seed": 4,
+      "cr": 0.4,
+      "speed": 1.422075230335461
+    },
+    {
+      "method": "asra",
+      "gain": 2.0,
+      "decode": "greedy",
+      "seed": 4,
+      "cr": 0.4,
+      "speed": 1.421856335140607
+    },
+    {
+      "method": "asra",
+      "gain": 1.0,
+      "decode": "greedy",
+      "seed": 4,
+      "cr": 0.4,
+      "speed": 1.421874423579805
+    },
+    {
+      "method": "asra",
+      "gain": 3.0,
+      "decode": "greedy",
+      "seed": 4,
+      "cr": 0.4,
+      "speed": 1.4473164387840551
+    },
+    {
+      "method": "asra",
+      "gain": 5.0,
+      "decode": "greedy",
+      "seed": 4,
+      "cr": 0.425,
+      "speed": 1.245197111857934
+    },
+    {
+      "method": "asra",
+      "gain": 8.0,
+      "decode": "greedy",
+      "seed": 4,
+      "cr": 0.475,
+      "speed": 1.4724646887110904
+    },
+    {
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "sample",
+      "seed": 4,
+      "cr": 0.35,
+      "speed": 1.0270858496179316
+    },
+    {
+      "method": "asra",
+      "gain": 5.0,
+      "decode": "sample",
+      "seed": 4,
+      "cr": 0.575,
+      "speed": 1.9544783463429283
+    },
+    {
+      "method": "asra",
+      "gain": 0.5,
+      "decode": "sample",
+      "seed": 4,
+      "cr": 0.425,
+      "speed": 1.2193412580490857
+    },
+    {
+      "method": "asra",
+      "gain": 8.0,
+      "decode": "sample",
+      "seed": 4,
+      "cr": 0.5,
+      "speed": 1.7851085124789858
+    },
+    {
+      "method": "asra",
+      "gain": 1.0,
+      "decode": "sample",
+      "seed": 4,
+      "cr": 0.375,
+      "speed": 1.1534482061214189
+    },
+    {
+      "method": "asra",
+      "gain": 3.0,
+      "decode": "sample",
+      "seed": 4,
+      "cr": 0.375,
+      "speed": 1.4954680878886737
+    },
+    {
+      "method": "asra",
+      "gain": 2.0,
+      "decode": "sample",
+      "seed": 4,
+      "cr": 0.325,
+      "speed": 1.0247121871177394
+    },
+    {
+      "method": "baseline",
+      "kind": "noop_greedy",
+      "seed": 4,
+      "cr": 0.45,
+      "speed": 1.2721432222312785
+    },
+    {
+      "method": "baseline",
+      "kind": "noop_sample",
+      "seed": 4,
+      "cr": 0.375,
+      "speed": 1.2328690511808715
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 0.0,
+      "seed": 4,
+      "cr": 0.375,
+      "speed": 1.3766352025088857
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 1.0,
+      "seed": 4,
+      "cr": 0.425,
+      "speed": 1.2271835827149897
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 2.0,
+      "seed": 4,
+      "cr": 0.425,
+      "speed": 1.1988408563741313
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.1,
+      "seed": 4,
+      "cr": 0.475,
+      "speed": 1.7503135836607053
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 3.0,
+      "seed": 4,
+      "cr": 0.375,
+      "speed": 0.8753039467150472
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 4.0,
+      "seed": 4,
+      "cr": 0.375,
+      "speed": 0.7903286250921697
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.0,
+      "seed": 4,
+      "cr": 0.325,
+      "speed": 1.0434046163229769
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.3,
+      "seed": 4,
+      "cr": 0.4,
+      "speed": 0.6679999275794575
+    },
+    {
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "greedy",
+      "seed": 5,
+      "cr": 0.6,
+      "speed": 1.33275848203956
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.6,
+      "seed": 4,
+      "cr": 0.45,
+      "speed": 0.7067749128670824
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 1.0,
+      "seed": 4,
+      "cr": 0.45,
+      "speed": 0.6911471862189923
+    },
+    {
+      "method": "asra",
+      "gain": 0.5,
+      "decode": "greedy",
+      "seed": 5,
+      "cr": 0.5,
+      "speed": 1.4074939134845057
+    },
+    {
+      "method": "asra",
+      "gain": 1.0,
+      "decode": "greedy",
+      "seed": 5,
+      "cr": 0.5,
+      "speed": 1.412869350748425
+    },
+    {
+      "method": "asra",
+      "gain": 2.0,
+      "decode": "greedy",
+      "seed": 5,
+      "cr": 0.5,
+      "speed": 1.4116694846906328
+    },
+    {
+      "method": "asra",
+      "gain": 3.0,
+      "decode": "greedy",
+      "seed": 5,
+      "cr": 0.525,
+      "speed": 1.4647314399960927
+    },
+    {
+      "method": "asra",
+      "gain": 5.0,
+      "decode": "greedy",
+      "seed": 5,
+      "cr": 0.55,
+      "speed": 1.4324062187038247
+    },
+    {
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "sample",
+      "seed": 5,
+      "cr": 0.65,
+      "speed": 2.1449994052974546
+    },
+    {
+      "method": "asra",
+      "gain": 8.0,
+      "decode": "greedy",
+      "seed": 5,
+      "cr": 0.625,
+      "speed": 1.7646883970591585
+    },
+    {
+      "method": "asra",
+      "gain": 1.0,
+      "decode": "sample",
+      "seed": 5,
+      "cr": 0.675,
+      "speed": 2.476987132715406
+    },
+    {
+      "method": "asra",
+      "gain": 0.5,
+      "decode": "sample",
+      "seed": 5,
+      "cr": 0.6,
+      "speed": 1.9779893240398483
+    },
+    {
+      "method": "asra",
+      "gain": 2.0,
+      "decode": "sample",
+      "seed": 5,
+      "cr": 0.65,
+      "speed": 2.3100042490788497
+    },
+    {
+      "method": "asra",
+      "gain": 5.0,
+      "decode": "sample",
+      "seed": 5,
+      "cr": 0.725,
+      "speed": 2.4052356847113026
+    },
+    {
+      "method": "asra",
+      "gain": 3.0,
+      "decode": "sample",
+      "seed": 5,
+      "cr": 0.575,
+      "speed": 1.7469919036448396
+    },
+    {
+      "method": "asra",
+      "gain": 8.0,
+      "decode": "sample",
+      "seed": 5,
+      "cr": 0.7,
+      "speed": 2.386667596571551
+    },
+    {
+      "method": "baseline",
+      "kind": "noop_greedy",
+      "seed": 5,
+      "cr": 0.6,
+      "speed": 1.33275848203956
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 1.0,
+      "seed": 5,
+      "cr": 0.675,
+      "speed": 1.8585107130503686
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 0.0,
+      "seed": 5,
+      "cr": 0.625,
+      "speed": 2.1092306680668225
+    },
+    {
+      "method": "baseline",
+      "kind": "noop_sample",
+      "seed": 5,
+      "cr": 0.55,
+      "speed": 1.607133849417187
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 3.0,
+      "seed": 5,
+      "cr": 0.625,
+      "speed": 1.537359412074039
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 2.0,
+      "seed": 5,
+      "cr": 0.575,
+      "speed": 1.5362231878902903
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 4.0,
+      "seed": 5,
+      "cr": 0.625,
+      "speed": 1.6405175268821974
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.0,
+      "seed": 5,
+      "cr": 0.55,
+      "speed": 1.7497273037484704
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.1,
+      "seed": 5,
+      "cr": 0.6,
+      "speed": 1.603637966253686
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.3,
+      "seed": 5,
+      "cr": 0.65,
+      "speed": 1.5331302545789238
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 1.0,
+      "seed": 5,
+      "cr": 0.65,
+      "speed": 1.4516589295713866
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.6,
+      "seed": 5,
+      "cr": 0.6,
+      "speed": 1.1931408968374284
+    }
+  ],
+  "elapsed_s": 301.6346299648285
+}

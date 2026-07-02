@@ -1,0 +1,266 @@
+{
+  "results": [
+    {
+      "cond": "noop_greedy",
+      "seed": 2,
+      "method": "baseline",
+      "kind": "noop_greedy",
+      "cr": 0.56,
+      "speed": 20.241767486265466,
+      "brake_frac": 0.8552727857981453,
+      "n_ep": 25
+    },
+    {
+      "cond": "noop_sample",
+      "seed": 2,
+      "method": "baseline",
+      "kind": "noop_sample",
+      "cr": 0.56,
+      "speed": 21.21082214735458,
+      "brake_frac": 0.5973848095976249,
+      "n_ep": 25
+    },
+    {
+      "cond": "mask_defer",
+      "seed": 2,
+      "method": "mask_defer",
+      "cr": 0.56,
+      "speed": 20.241767486265466,
+      "brake_frac": 1.0,
+      "n_ep": 25
+    },
+    {
+      "cond": "ttc_brake@2",
+      "seed": 2,
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 2.0,
+      "cr": 0.56,
+      "speed": 20.650693435387073,
+      "brake_frac": 0.8002111736222761,
+      "n_ep": 25
+    },
+    {
+      "cond": "prob_brake@.5",
+      "seed": 2,
+      "method": "baseline",
+      "kind": "prob_brake",
+      "p": 0.5,
+      "cr": 0.52,
+      "speed": 20.58111029557252,
+      "brake_frac": 0.7970194679684427,
+      "n_ep": 25
+    },
+    {
+      "cond": "asra_g0.0_greedy",
+      "seed": 2,
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "greedy",
+      "cr": 0.56,
+      "speed": 20.241767486265466,
+      "brake_frac": 0.8552727857981453,
+      "n_ep": 25
+    },
+    {
+      "cond": "asra_g1.0_greedy",
+      "seed": 2,
+      "method": "asra",
+      "gain": 1.0,
+      "decode": "greedy",
+      "cr": 0.56,
+      "speed": 20.527748435574026,
+      "brake_frac": 0.9534510442095808,
+      "n_ep": 25
+    },
+    {
+      "cond": "asra_g3.0_greedy",
+      "seed": 2,
+      "method": "asra",
+      "gain": 3.0,
+      "decode": "greedy",
+      "cr": 0.88,
+      "speed": 21.515517205044205,
+      "brake_frac": 0.8500190032669711,
+      "n_ep": 25
+    },
+    {
+      "cond": "asra_g6.0_greedy",
+      "seed": 2,
+      "method": "asra",
+      "gain": 6.0,
+      "decode": "greedy",
+      "cr": 0.84,
+      "speed": 21.475833092820587,
+      "brake_frac": 0.7657568407619031,
+      "n_ep": 25
+    },
+    {
+      "cond": "asra_g1.0_sample",
+      "seed": 2,
+      "method": "asra",
+      "gain": 1.0,
+      "decode": "sample",
+      "cr": 0.64,
+      "speed": 21.30228317214782,
+      "brake_frac": 0.7222777877148513,
+      "n_ep": 25
+    },
+    {
+      "cond": "asra_g3.0_sample",
+      "seed": 2,
+      "method": "asra",
+      "gain": 3.0,
+      "decode": "sample",
+      "cr": 0.92,
+      "speed": 22.212485133031798,
+      "brake_frac": 0.6348501641132329,
+      "n_ep": 25
+    },
+    {
+      "cond": "asra_g6.0_sample",
+      "seed": 2,
+      "method": "asra",
+      "gain": 6.0,
+      "decode": "sample",
+      "cr": 0.92,
+      "speed": 21.8075511936034,
+      "brake_frac": 0.6463078970076803,
+      "n_ep": 25
+    },
+    {
+      "cond": "noop_greedy",
+      "seed": 3,
+      "method": "baseline",
+      "kind": "noop_greedy",
+      "cr": 0.4,
+      "speed": 20.205541346874277,
+      "brake_frac": 0.8523925166718649,
+      "n_ep": 25
+    },
+    {
+      "cond": "noop_sample",
+      "seed": 3,
+      "method": "baseline",
+      "kind": "noop_sample",
+      "cr": 0.72,
+      "speed": 20.999161179803362,
+      "brake_frac": 0.6298835445270847,
+      "n_ep": 25
+    },
+    {
+      "cond": "mask_defer",
+      "seed": 3,
+      "method": "mask_defer",
+      "cr": 0.4,
+      "speed": 20.205541346874277,
+      "brake_frac": 1.0,
+      "n_ep": 25
+    },
+    {
+      "cond": "ttc_brake@2",
+      "seed": 3,
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 2.0,
+      "cr": 0.6,
+      "speed": 20.66854118927232,
+      "brake_frac": 0.8028101550968525,
+      "n_ep": 25
+    },
+    {
+      "cond": "prob_brake@.5",
+      "seed": 3,
+      "method": "baseline",
+      "kind": "prob_brake",
+      "p": 0.5,
+      "cr": 0.52,
+      "speed": 20.500135412602535,
+      "brake_frac": 0.8232095299797066,
+      "n_ep": 25
+    },
+    {
+      "cond": "asra_g0.0_greedy",
+      "seed": 3,
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "greedy",
+      "cr": 0.4,
+      "speed": 20.205541346874277,
+      "brake_frac": 0.8523925166718649,
+      "n_ep": 25
+    },
+    {
+      "cond": "asra_g1.0_greedy",
+      "seed": 3,
+      "method": "asra",
+      "gain": 1.0,
+      "decode": "greedy",
+      "cr": 0.56,
+      "speed": 20.641681061040888,
+      "brake_frac": 0.9346342342974399,
+      "n_ep": 25
+    },
+    {
+      "cond": "asra_g3.0_greedy",
+      "seed": 3,
+      "method": "asra",
+      "gain": 3.0,
+      "decode": "greedy",
+      "cr": 0.68,
+      "speed": 21.22558372125505,
+      "brake_frac": 0.8710741657696854,
+      "n_ep": 25
+    },
+    {
+      "cond": "asra_g6.0_greedy",
+      "seed": 3,
+      "method": "asra",
+      "gain": 6.0,
+      "decode": "greedy",
+      "cr": 0.8,
+      "speed": 21.671019472071254,
+      "brake_frac": 0.7641915728204645,
+      "n_ep": 25
+    },
+    {
+      "cond": "asra_g1.0_sample",
+      "seed": 3,
+      "method": "asra",
+      "gain": 1.0,
+      "decode": "sample",
+      "cr": 0.68,
+      "speed": 21.328123150264084,
+      "brake_frac": 0.7146811150523876,
+      "n_ep": 25
+    },
+    {
+      "cond": "asra_g3.0_sample",
+      "seed": 3,
+      "method": "asra",
+      "gain": 3.0,
+      "decode": "sample",
+      "cr": 0.76,
+      "speed": 21.904903293082608,
+      "brake_frac": 0.6799105786915333,
+      "n_ep": 25
+    },
+    {
+      "cond": "asra_g6.0_sample",
+      "seed": 3,
+      "method": "asra",
+      "gain": 6.0,
+      "decode": "sample",
+      "cr": 0.92,
+      "speed": 21.812597656964364,
+      "brake_frac": 0.6212299249973193,
+      "n_ep": 25
+    }
+  ],
+  "seeds": [
+    2,
+    3
+  ],
+  "n_ep": 25,
+  "elapsed_s": 7436.920105457306
+}

@@ -1,0 +1,180 @@
+{
+  "results": [
+    {
+      "policy": 0,
+      "slip": 0.1,
+      "cond": "raw",
+      "hole_rate": 1.0,
+      "success": 0.0
+    },
+    {
+      "policy": 0,
+      "slip": 0.1,
+      "cond": "override",
+      "hole_rate": 0.0,
+      "success": 0.0
+    },
+    {
+      "policy": 0,
+      "slip": 0.1,
+      "cond": "mask_defer",
+      "hole_rate": 0.2833333333333333,
+      "success": 0.6166666666666667
+    },
+    {
+      "policy": 0,
+      "slip": 0.1,
+      "cond": "asra_g1",
+      "hole_rate": 1.0,
+      "success": 0.0
+    },
+    {
+      "policy": 0,
+      "slip": 0.1,
+      "cond": "asra_g3",
+      "hole_rate": 0.16666666666666666,
+      "success": 0.0
+    },
+    {
+      "policy": 0,
+      "slip": 0.1,
+      "cond": "asra_g6",
+      "hole_rate": 0.13333333333333333,
+      "success": 0.0
+    },
+    {
+      "policy": 0,
+      "slip": 0.34,
+      "cond": "raw",
+      "hole_rate": 0.9833333333333333,
+      "success": 0.016666666666666666
+    },
+    {
+      "policy": 0,
+      "slip": 0.34,
+      "cond": "override",
+      "hole_rate": 0.08333333333333333,
+      "success": 0.0
+    },
+    {
+      "policy": 0,
+      "slip": 0.34,
+      "cond": "mask_defer",
+      "hole_rate": 0.6333333333333333,
+      "success": 0.1
+    },
+    {
+      "policy": 0,
+      "slip": 0.34,
+      "cond": "asra_g1",
+      "hole_rate": 1.0,
+      "success": 0.0
+    },
+    {
+      "policy": 0,
+      "slip": 0.34,
+      "cond": "asra_g3",
+      "hole_rate": 0.9,
+      "success": 0.0
+    },
+    {
+      "policy": 0,
+      "slip": 0.34,
+      "cond": "asra_g6",
+      "hole_rate": 0.5,
+      "success": 0.0
+    },
+    {
+      "policy": 1,
+      "slip": 0.1,
+      "cond": "raw",
+      "hole_rate": 0.016666666666666666,
+      "success": 0.9833333333333333
+    },
+    {
+      "policy": 1,
+      "slip": 0.1,
+      "cond": "override",
+      "hole_rate": 0.0,
+      "success": 1.0
+    },
+    {
+      "policy": 1,
+      "slip": 0.1,
+      "cond": "mask_defer",
+      "hole_rate": 0.016666666666666666,
+      "success": 0.9833333333333333
+    },
+    {
+      "policy": 1,
+      "slip": 0.1,
+      "cond": "asra_g1",
+      "hole_rate": 0.016666666666666666,
+      "success": 0.9833333333333333
+    },
+    {
+      "policy": 1,
+      "slip": 0.1,
+      "cond": "asra_g3",
+      "hole_rate": 0.016666666666666666,
+      "success": 0.9833333333333333
+    },
+    {
+      "policy": 1,
+      "slip": 0.1,
+      "cond": "asra_g6",
+      "hole_rate": 0.016666666666666666,
+      "success": 0.9833333333333333
+    },
+    {
+      "policy": 1,
+      "slip": 0.34,
+      "cond": "raw",
+      "hole_rate": 0.25,
+      "success": 0.7
+    },
+    {
+      "policy": 1,
+      "slip": 0.34,
+      "cond": "override",
+      "hole_rate": 0.016666666666666666,
+      "success": 0.65
+    },
+    {
+      "policy": 1,
+      "slip": 0.34,
+      "cond": "mask_defer",
+      "hole_rate": 0.38333333333333336,
+      "success": 0.5
+    },
+    {
+      "policy": 1,
+      "slip": 0.34,
+      "cond": "asra_g1",
+      "hole_rate": 0.25,
+      "success": 0.7
+    },
+    {
+      "policy": 1,
+      "slip": 0.34,
+      "cond": "asra_g3",
+      "hole_rate": 0.31666666666666665,
+      "success": 0.65
+    },
+    {
+      "policy": 1,
+      "slip": 0.34,
+      "cond": "asra_g6",
+      "hole_rate": 0.21666666666666667,
+      "success": 0.75
+    }
+  ],
+  "n_policies": 2,
+  "n_ep": 60,
+  "size": 6,
+  "hole_p": 0.85,
+  "slips": [
+    0.1,
+    0.34
+  ]
+}

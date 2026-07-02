@@ -1,0 +1,256 @@
+{
+  "policies": [
+    "current_work/base_policies/easy_seed1_final.pt"
+  ],
+  "seeds": [
+    0,
+    1
+  ],
+  "n_ep": 6,
+  "g_grid": [
+    0.0,
+    2.0,
+    8.0
+  ],
+  "ttc_grid": [
+    0.0,
+    2.0
+  ],
+  "pbrake_grid": [
+    0.0,
+    1.0
+  ],
+  "eval_vehicles": 15,
+  "eval_density": 1.5,
+  "results": [
+    {
+      "seed": 0,
+      "policy": 0,
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "sample",
+      "cr": 1.0,
+      "speed": 25.357906288118603
+    },
+    {
+      "seed": 0,
+      "policy": 0,
+      "method": "asra",
+      "gain": 8.0,
+      "decode": "greedy",
+      "cr": 0.8333333333333334,
+      "speed": 22.28816887574072
+    },
+    {
+      "seed": 0,
+      "policy": 0,
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "greedy",
+      "cr": 0.5,
+      "speed": 24.416945032108885
+    },
+    {
+      "seed": 0,
+      "policy": 0,
+      "method": "asra",
+      "gain": 2.0,
+      "decode": "greedy",
+      "cr": 0.6666666666666666,
+      "speed": 22.217350468246668
+    },
+    {
+      "seed": 0,
+      "policy": 0,
+      "method": "asra",
+      "gain": 2.0,
+      "decode": "sample",
+      "cr": 0.8333333333333334,
+      "speed": 23.147779847605378
+    },
+    {
+      "seed": 0,
+      "policy": 0,
+      "method": "asra",
+      "gain": 8.0,
+      "decode": "sample",
+      "cr": 1.0,
+      "speed": 23.84959470623383
+    },
+    {
+      "seed": 0,
+      "policy": 0,
+      "method": "baseline",
+      "kind": "noop_greedy",
+      "cr": 0.5,
+      "speed": 24.416945032108885
+    },
+    {
+      "seed": 0,
+      "policy": 0,
+      "method": "mask_defer",
+      "gain": 0.0,
+      "cr": 0.3333333333333333,
+      "speed": 21.90941055873974
+    },
+    {
+      "seed": 0,
+      "policy": 0,
+      "method": "baseline",
+      "kind": "noop_sample",
+      "cr": 1.0,
+      "speed": 24.708353077293605
+    },
+    {
+      "seed": 0,
+      "policy": 0,
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 0.0,
+      "cr": 0.8333333333333334,
+      "speed": 24.130794207711904
+    },
+    {
+      "seed": 0,
+      "policy": 0,
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.0,
+      "cr": 0.6666666666666666,
+      "speed": 24.690549131127174
+    },
+    {
+      "seed": 0,
+      "policy": 0,
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 2.0,
+      "cr": 0.6666666666666666,
+      "speed": 22.25515942018151
+    },
+    {
+      "seed": 1,
+      "policy": 0,
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "greedy",
+      "cr": 0.8333333333333334,
+      "speed": 23.881672698085534
+    },
+    {
+      "seed": 0,
+      "policy": 0,
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 1.0,
+      "cr": 0.3333333333333333,
+      "speed": 20.296340009763643
+    },
+    {
+      "seed": 1,
+      "policy": 0,
+      "method": "asra",
+      "gain": 2.0,
+      "decode": "greedy",
+      "cr": 0.8333333333333334,
+      "speed": 22.35351789954291
+    },
+    {
+      "seed": 1,
+      "policy": 0,
+      "method": "asra",
+      "gain": 8.0,
+      "decode": "greedy",
+      "cr": 0.6666666666666666,
+      "speed": 21.750558238974843
+    },
+    {
+      "seed": 1,
+      "policy": 0,
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "sample",
+      "cr": 0.6666666666666666,
+      "speed": 24.37144576332705
+    },
+    {
+      "seed": 1,
+      "policy": 0,
+      "method": "asra",
+      "gain": 2.0,
+      "decode": "sample",
+      "cr": 0.6666666666666666,
+      "speed": 23.049185425485078
+    },
+    {
+      "seed": 1,
+      "policy": 0,
+      "method": "asra",
+      "gain": 8.0,
+      "decode": "sample",
+      "cr": 0.8333333333333334,
+      "speed": 21.702293000416038
+    },
+    {
+      "seed": 1,
+      "policy": 0,
+      "method": "baseline",
+      "kind": "noop_greedy",
+      "cr": 0.8333333333333334,
+      "speed": 23.881672698085534
+    },
+    {
+      "seed": 1,
+      "policy": 0,
+      "method": "baseline",
+      "kind": "noop_sample",
+      "cr": 0.8333333333333334,
+      "speed": 24.77305474545891
+    },
+    {
+      "seed": 1,
+      "policy": 0,
+      "method": "mask_defer",
+      "gain": 0.0,
+      "cr": 0.5,
+      "speed": 21.860872863794487
+    },
+    {
+      "seed": 1,
+      "policy": 0,
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 0.0,
+      "cr": 0.8333333333333334,
+      "speed": 24.755252281040654
+    },
+    {
+      "seed": 1,
+      "policy": 0,
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.0,
+      "cr": 0.8333333333333334,
+      "speed": 26.040544056519934
+    },
+    {
+      "seed": 1,
+      "policy": 0,
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 2.0,
+      "cr": 0.5,
+      "speed": 21.382013023459667
+    },
+    {
+      "seed": 1,
+      "policy": 0,
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 1.0,
+      "cr": 0.0,
+      "speed": 20.272727266947427
+    }
+  ],
+  "elapsed_s": 19.83835744857788
+}

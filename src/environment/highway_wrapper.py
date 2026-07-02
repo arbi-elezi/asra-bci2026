@@ -66,9 +66,20 @@ class HighwayFRAEnv(gym.Env):
         lanes_count: int = 3,
         duration: int = 50,
         seed: int | None = None,
+        vehicles_density: float = 1.5,
+        high_speed_reward: float = 0.4,
+        collision_reward: float = -1.0,
+        reward_speed_range: tuple[float, float] = (20.0, 30.0),
+        scenario: str = "highway",
     ) -> None:
         super().__init__()
 
+        # scenario -> gym id (additional highway-env scenarios for cross-scenario evaluation)
+        gym_id = {"highway": "highway-v0", "merge": "merge-v0",
+                  "roundabout": "roundabout-v0"}.get(scenario, "highway-v0")
+        self._scenario = scenario
+
+        # shared observation/action/reward config (R^12 kinematics + 4 meta-actions)
         self._hw_config = {
             "observation": {
                 "type": "Kinematics",
@@ -77,28 +88,26 @@ class HighwayFRAEnv(gym.Env):
                 "normalize": False,
                 "absolute": False,  # Relative to ego
             },
-            "action": {
-                "type": "DiscreteMetaAction",
-            },
-            "lanes_count": lanes_count,
-            "vehicles_count": vehicles_count,
+            "action": {"type": "DiscreteMetaAction"},
             "duration": duration,
-            "collision_reward": -1.0,
-            "right_lane_reward": 0.0,
-            "high_speed_reward": 0.4,
-            "reward_speed_range": [20, 30],
+            "collision_reward": collision_reward,
+            "high_speed_reward": high_speed_reward,
+            "reward_speed_range": list(reward_speed_range),
             "simulation_frequency": 10,  # 10 Hz
             "policy_frequency": 5,       # 5 Hz decisions
-            # Research scenario — IDM vehicles but dense traffic
-            "vehicles_density": 1.5,     # Moderate-high density
-            "initial_spacing": 2,        # Standard gaps
         }
+        # highway/merge expose lane count, ambient traffic count and density; roundabout has a
+        # fixed layout, so those keys are omitted there.
+        if scenario in ("highway", "merge"):
+            self._hw_config.update({
+                "lanes_count": lanes_count,
+                "vehicles_count": vehicles_count,
+                "right_lane_reward": 0.0,
+                "vehicles_density": vehicles_density,
+                "initial_spacing": 2,
+            })
 
-        self._inner = gym.make(
-            "highway-v0",
-            render_mode=render_mode,
-            config=self._hw_config,
-        )
+        self._inner = gym.make(gym_id, render_mode=render_mode, config=self._hw_config)
 
         # Paper action space: |A| = 4
         self.action_space = gym.spaces.Discrete(4)

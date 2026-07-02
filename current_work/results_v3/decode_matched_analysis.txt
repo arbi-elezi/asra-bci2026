@@ -1,0 +1,48 @@
+
+=== multipolicy_merge.json  (scenario=merge, 3 policies) ===
+  [decode-MATCHED]  ASRA-greedy(best-of-gains)  vs  mask(greedy):
+    @CR<=0.5: n=3 d=+0.58 CI[+0.20,+1.06]  A>B
+    @CR<=0.7: n=3 d=+0.96 CI[+0.20,+1.61]  A>B
+  [decode-mismatch] ASRA-sample  vs  mask(greedy):  (gap here = partly decode, not mechanism)
+    @CR<=0.5: n=3 d=+0.04 CI[-2.62,+2.04]  TIE
+    @CR<=0.7: n=3 d=+0.71 CI[-2.15,+2.95]  TIE
+  [ACID TEST: FIXED single gain, selection favors mask] ASRA-greedy@g vs mask(greedy):
+    gain= 0.0: @0.5 n2 | @0.7 n2
+    gain= 0.5: @0.5 d=-0.04[-0.24,+0.13] tie (n3) | @0.7 d=-0.04[-0.24,+0.13] tie (n3)
+    gain= 1.0: @0.5 d=+0.19[-0.14,+0.71] tie (n3) | @0.7 d=+0.19[-0.14,+0.71] tie (n3)
+    gain= 2.0: @0.5 d=+0.31[-0.18,+0.97] tie (n3) | @0.7 d=+0.31[-0.18,+0.97] tie (n3)
+    gain= 3.0: @0.5 d=+0.57[+0.20,+1.03] A>M (n3) | @0.7 d=+0.57[+0.20,+1.03] A>M (n3)
+    gain= 5.0: @0.5 n1 | @0.7 n2
+    gain= 8.0: @0.5 n1 | @0.7 n2
+
+=== multipolicy_roundabout.json  (scenario=roundabout, 3 policies) ===
+  [decode-MATCHED]  ASRA-greedy(best-of-gains)  vs  mask(greedy):
+    @CR<=0.5: n=3 d=+0.25 CI[+0.10,+0.38]  A>B
+    @CR<=0.7: n=3 d=+0.25 CI[+0.10,+0.38]  A>B
+  [decode-mismatch] ASRA-sample  vs  mask(greedy):  (gap here = partly decode, not mechanism)
+    @CR<=0.5: n=3 d=+0.39 CI[+0.32,+0.52]  A>B
+    @CR<=0.7: n=3 d=+0.62 CI[+0.47,+0.80]  A>B
+  [ACID TEST: FIXED single gain, selection favors mask] ASRA-greedy@g vs mask(greedy):
+    gain= 0.0: @0.5 d=-0.09[-0.20,+0.00] tie (n3) | @0.7 d=-0.09[-0.20,+0.00] tie (n3)
+    gain= 0.5: @0.5 d=+0.04[-0.00,+0.09] tie (n3) | @0.7 d=+0.04[-0.00,+0.09] tie (n3)
+    gain= 1.0: @0.5 d=+0.04[+0.00,+0.10] A>M (n3) | @0.7 d=+0.04[+0.00,+0.10] A>M (n3)
+    gain= 2.0: @0.5 d=+0.05[+0.01,+0.11] A>M (n3) | @0.7 d=+0.05[+0.01,+0.11] A>M (n3)
+    gain= 3.0: @0.5 d=+0.14[-0.06,+0.38] tie (n3) | @0.7 d=+0.14[-0.06,+0.38] tie (n3)
+    gain= 5.0: @0.5 d=+0.15[-0.07,+0.31] tie (n3) | @0.7 d=+0.15[-0.07,+0.31] tie (n3)
+    gain= 8.0: @0.5 n2 | @0.7 d=+0.23[+0.10,+0.34] A>M (n3)
+
+=== multipolicy_driving.json  (scenario=?, 6 policies) ===
+  [decode-MATCHED]  ASRA-greedy(best-of-gains)  vs  mask(greedy):
+    @CR<=0.5: n=1 (insufficient)
+    @CR<=0.7: n=3 d=+0.44 CI[+0.00,+0.80]  TIE
+  [decode-mismatch] ASRA-sample  vs  mask(greedy):  (gap here = partly decode, not mechanism)
+    @CR<=0.5: n=0 (insufficient)
+    @CR<=0.7: n=0 (insufficient)
+  [ACID TEST: FIXED single gain, selection favors mask] ASRA-greedy@g vs mask(greedy):
+    gain= 0.0: @0.5 n1 | @0.7 d=+0.00[+0.00,+0.00] tie (n3)
+    gain= 0.5: @0.5 n0 | @0.7 n2
+    gain= 1.0: @0.5 n0 | @0.7 n0
+    gain= 2.0: @0.5 n0 | @0.7 n0
+    gain= 3.0: @0.5 n0 | @0.7 n0
+    gain= 5.0: @0.5 n0 | @0.7 n0
+    gain= 8.0: @0.5 n0 | @0.7 n0

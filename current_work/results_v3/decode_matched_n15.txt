@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "D:\bci-2026\current_work\asra_fast\decode_matched.py", line 93, in <module>
+    d, G = load(path); npol = len(d["policies"]); levels = a.levels
+  File "D:\bci-2026\current_work\asra_fast\decode_matched.py", line 24, in load
+    d = json.load(open(path))
+FileNotFoundError: [Errno 2] No such file or directory: 'current_work/results_v3/multipolicy_merge_n15.json'

@@ -1,0 +1,32 @@
+
+=== multipolicy_merge_n6.json  (scenario=merge, 6 policies) ===
+  [decode-MATCHED]  ASRA-greedy(best-of-gains)  vs  mask(greedy):
+    @CR<=0.5: n=6 d=+0.56 CI[+0.22,+0.89]  A>B
+    @CR<=0.7: n=6 d=+0.93 CI[+0.57,+1.25]  A>B
+  [decode-mismatch] ASRA-sample  vs  mask(greedy):  (gap here = partly decode, not mechanism)
+    @CR<=0.5: n=6 d=+0.52 CI[-0.95,+1.66]  TIE
+    @CR<=0.7: n=6 d=+0.90 CI[-0.39,+1.87]  TIE
+  [ACID TEST: FIXED single gain, selection favors mask] ASRA-greedy@g vs mask(greedy):
+    gain= 0.0: @0.5 d=-0.09[-0.27,+0.00] tie (n4) | @0.7 d=-0.09[-0.27,+0.00] tie (n4)
+    gain= 0.5: @0.5 d=-0.04[-0.14,+0.05] tie (n6) | @0.7 d=-0.04[-0.14,+0.05] tie (n6)
+    gain= 1.0: @0.5 d=+0.11[-0.08,+0.42] tie (n5) | @0.7 d=+0.26[-0.05,+0.61] tie (n6)
+    gain= 2.0: @0.5 d=+0.19[-0.07,+0.59] tie (n5) | @0.7 d=+0.19[-0.07,+0.59] tie (n5)
+    gain= 3.0: @0.5 d=+0.43[+0.14,+0.74] A>M (n5) | @0.7 d=+0.43[+0.14,+0.74] A>M (n5)
+    gain= 5.0: @0.5 d=+0.66[+0.00,+1.06] tie (n3) | @0.7 d=+0.85[+0.27,+1.29] A>M (n4)
+    gain= 8.0: @0.5 d=+0.92[+0.66,+1.06] A>M (n3) | @0.7 d=+1.10[+0.76,+1.47] A>M (n4)
+
+=== multipolicy_roundabout_n6.json  (scenario=roundabout, 6 policies) ===
+  [decode-MATCHED]  ASRA-greedy(best-of-gains)  vs  mask(greedy):
+    @CR<=0.5: n=6 d=+0.21 CI[+0.15,+0.29]  A>B
+    @CR<=0.7: n=6 d=+0.29 CI[+0.19,+0.39]  A>B
+  [decode-mismatch] ASRA-sample  vs  mask(greedy):  (gap here = partly decode, not mechanism)
+    @CR<=0.5: n=6 d=+0.24 CI[+0.08,+0.40]  A>B
+    @CR<=0.7: n=6 d=+0.60 CI[+0.42,+0.76]  A>B
+  [ACID TEST: FIXED single gain, selection favors mask] ASRA-greedy@g vs mask(greedy):
+    gain= 0.0: @0.5 d=-0.04[-0.11,+0.00] tie (n6) | @0.7 d=-0.04[-0.11,+0.00] tie (n6)
+    gain= 0.5: @0.5 d=+0.09[+0.04,+0.14] A>M (n6) | @0.7 d=+0.09[+0.04,+0.14] A>M (n6)
+    gain= 1.0: @0.5 d=+0.11[+0.05,+0.17] A>M (n6) | @0.7 d=+0.11[+0.05,+0.17] A>M (n6)
+    gain= 2.0: @0.5 d=-0.01[-0.13,+0.09] tie (n4) | @0.7 d=+0.13[-0.03,+0.31] tie (n6)
+    gain= 3.0: @0.5 d=+0.06[-0.12,+0.27] tie (n4) | @0.7 d=+0.17[-0.02,+0.35] tie (n6)
+    gain= 5.0: @0.5 d=+0.07[-0.13,+0.26] tie (n4) | @0.7 d=+0.14[-0.02,+0.28] tie (n6)
+    gain= 8.0: @0.5 d=+0.06[-0.19,+0.26] tie (n3) | @0.7 d=+0.18[+0.02,+0.30] A>M (n6)

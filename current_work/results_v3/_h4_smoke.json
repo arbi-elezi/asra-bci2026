@@ -1,0 +1,270 @@
+{
+  "policies": [
+    "current_work/base_policies/scn_merge_seed0_final.pt"
+  ],
+  "seeds": [
+    0,
+    1
+  ],
+  "n_ep": 6,
+  "g_grid": [
+    0.0,
+    3.0,
+    8.0
+  ],
+  "results": [
+    {
+      "seed": 0,
+      "policy": 0,
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "greedy",
+      "weight_channel": false,
+      "conf_channel": true,
+      "cfg": "conf_only",
+      "cr": 0.3333333333333333,
+      "speed": 22.03199567913312
+    },
+    {
+      "seed": 0,
+      "policy": 0,
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "greedy",
+      "weight_channel": true,
+      "conf_channel": true,
+      "cfg": "full",
+      "cr": 0.3333333333333333,
+      "speed": 22.03199567913312
+    },
+    {
+      "seed": 0,
+      "policy": 0,
+      "method": "asra",
+      "gain": 8.0,
+      "decode": "greedy",
+      "weight_channel": true,
+      "conf_channel": true,
+      "cfg": "full",
+      "cr": 0.3333333333333333,
+      "speed": 22.04048333816361
+    },
+    {
+      "seed": 0,
+      "policy": 0,
+      "method": "asra",
+      "gain": 3.0,
+      "decode": "greedy",
+      "weight_channel": true,
+      "conf_channel": true,
+      "cfg": "full",
+      "cr": 0.3333333333333333,
+      "speed": 22.03199567913312
+    },
+    {
+      "seed": 0,
+      "policy": 0,
+      "method": "asra",
+      "gain": 3.0,
+      "decode": "greedy",
+      "weight_channel": false,
+      "conf_channel": true,
+      "cfg": "conf_only",
+      "cr": 0.3333333333333333,
+      "speed": 22.03199567913312
+    },
+    {
+      "seed": 0,
+      "policy": 0,
+      "method": "asra",
+      "gain": 8.0,
+      "decode": "greedy",
+      "weight_channel": false,
+      "conf_channel": true,
+      "cfg": "conf_only",
+      "cr": 0.3333333333333333,
+      "speed": 22.04048333816361
+    },
+    {
+      "seed": 0,
+      "policy": 0,
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "greedy",
+      "weight_channel": true,
+      "conf_channel": false,
+      "cfg": "weight_only",
+      "cr": 0.3333333333333333,
+      "speed": 22.03199567913312
+    },
+    {
+      "seed": 0,
+      "policy": 0,
+      "method": "asra",
+      "gain": 3.0,
+      "decode": "greedy",
+      "weight_channel": true,
+      "conf_channel": false,
+      "cfg": "weight_only",
+      "cr": 0.3333333333333333,
+      "speed": 22.03199567913312
+    },
+    {
+      "seed": 0,
+      "policy": 0,
+      "method": "mask_defer",
+      "gain": 0.0,
+      "cfg": "mask",
+      "cr": 0.3333333333333333,
+      "speed": 22.04048333816361
+    },
+    {
+      "seed": 0,
+      "policy": 0,
+      "method": "baseline",
+      "kind": "noop_greedy",
+      "cfg": "noop",
+      "cr": 0.3333333333333333,
+      "speed": 22.03199567913312
+    },
+    {
+      "seed": 0,
+      "policy": 0,
+      "method": "asra",
+      "gain": 8.0,
+      "decode": "greedy",
+      "weight_channel": true,
+      "conf_channel": false,
+      "cfg": "weight_only",
+      "cr": 0.3333333333333333,
+      "speed": 22.03199567913312
+    },
+    {
+      "seed": 1,
+      "policy": 0,
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "greedy",
+      "weight_channel": true,
+      "conf_channel": true,
+      "cfg": "full",
+      "cr": 0.3333333333333333,
+      "speed": 22.041611522176993
+    },
+    {
+      "seed": 1,
+      "policy": 0,
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "greedy",
+      "weight_channel": false,
+      "conf_channel": true,
+      "cfg": "conf_only",
+      "cr": 0.3333333333333333,
+      "speed": 22.041611522176993
+    },
+    {
+      "seed": 1,
+      "policy": 0,
+      "method": "asra",
+      "gain": 3.0,
+      "decode": "greedy",
+      "weight_channel": true,
+      "conf_channel": true,
+      "cfg": "full",
+      "cr": 0.3333333333333333,
+      "speed": 22.164138215521106
+    },
+    {
+      "seed": 1,
+      "policy": 0,
+      "method": "asra",
+      "gain": 8.0,
+      "decode": "greedy",
+      "weight_channel": true,
+      "conf_channel": true,
+      "cfg": "full",
+      "cr": 0.3333333333333333,
+      "speed": 22.181863402398886
+    },
+    {
+      "seed": 1,
+      "policy": 0,
+      "method": "asra",
+      "gain": 3.0,
+      "decode": "greedy",
+      "weight_channel": false,
+      "conf_channel": true,
+      "cfg": "conf_only",
+      "cr": 0.3333333333333333,
+      "speed": 22.13968532788005
+    },
+    {
+      "seed": 1,
+      "policy": 0,
+      "method": "asra",
+      "gain": 8.0,
+      "decode": "greedy",
+      "weight_channel": false,
+      "conf_channel": true,
+      "cfg": "conf_only",
+      "cr": 0.3333333333333333,
+      "speed": 22.181863402398886
+    },
+    {
+      "seed": 1,
+      "policy": 0,
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "greedy",
+      "weight_channel": true,
+      "conf_channel": false,
+      "cfg": "weight_only",
+      "cr": 0.3333333333333333,
+      "speed": 22.041611522176993
+    },
+    {
+      "seed": 1,
+      "policy": 0,
+      "method": "asra",
+      "gain": 3.0,
+      "decode": "greedy",
+      "weight_channel": true,
+      "conf_channel": false,
+      "cfg": "weight_only",
+      "cr": 0.3333333333333333,
+      "speed": 22.041611522176993
+    },
+    {
+      "seed": 1,
+      "policy": 0,
+      "method": "asra",
+      "gain": 8.0,
+      "decode": "greedy",
+      "weight_channel": true,
+      "conf_channel": false,
+      "cfg": "weight_only",
+      "cr": 0.3333333333333333,
+      "speed": 22.05227030555983
+    },
+    {
+      "seed": 1,
+      "policy": 0,
+      "method": "mask_defer",
+      "gain": 0.0,
+      "cfg": "mask",
+      "cr": 0.3333333333333333,
+      "speed": 22.119201277765097
+    },
+    {
+      "seed": 1,
+      "policy": 0,
+      "method": "baseline",
+      "kind": "noop_greedy",
+      "cfg": "noop",
+      "cr": 0.3333333333333333,
+      "speed": 22.041611522176993
+    }
+  ],
+  "elapsed_s": 12.548154830932617
+}

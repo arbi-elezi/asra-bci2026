@@ -1,0 +1,1525 @@
+{
+  "results": [
+    {
+      "policy": 0,
+      "slip": 0.1,
+      "cond": "raw",
+      "hole_rate": 1.0,
+      "success": 0.0
+    },
+    {
+      "policy": 0,
+      "slip": 0.1,
+      "cond": "override",
+      "hole_rate": 0.0,
+      "success": 0.005
+    },
+    {
+      "policy": 0,
+      "slip": 0.1,
+      "cond": "mask_defer",
+      "hole_rate": 0.23,
+      "success": 0.295
+    },
+    {
+      "policy": 0,
+      "slip": 0.1,
+      "cond": "asra_g1",
+      "hole_rate": 0.995,
+      "success": 0.0
+    },
+    {
+      "policy": 0,
+      "slip": 0.1,
+      "cond": "asra_g3",
+      "hole_rate": 0.915,
+      "success": 0.0
+    },
+    {
+      "policy": 0,
+      "slip": 0.1,
+      "cond": "asra_g6",
+      "hole_rate": 0.225,
+      "success": 0.0
+    },
+    {
+      "policy": 0,
+      "slip": 0.2,
+      "cond": "raw",
+      "hole_rate": 0.995,
+      "success": 0.0
+    },
+    {
+      "policy": 0,
+      "slip": 0.2,
+      "cond": "override",
+      "hole_rate": 0.0,
+      "success": 0.005
+    },
+    {
+      "policy": 0,
+      "slip": 0.2,
+      "cond": "mask_defer",
+      "hole_rate": 0.385,
+      "success": 0.38
+    },
+    {
+      "policy": 0,
+      "slip": 0.2,
+      "cond": "asra_g1",
+      "hole_rate": 0.96,
+      "success": 0.0
+    },
+    {
+      "policy": 0,
+      "slip": 0.2,
+      "cond": "asra_g3",
+      "hole_rate": 0.865,
+      "success": 0.0
+    },
+    {
+      "policy": 0,
+      "slip": 0.2,
+      "cond": "asra_g6",
+      "hole_rate": 0.37,
+      "success": 0.0
+    },
+    {
+      "policy": 0,
+      "slip": 0.34,
+      "cond": "raw",
+      "hole_rate": 0.985,
+      "success": 0.005
+    },
+    {
+      "policy": 0,
+      "slip": 0.34,
+      "cond": "override",
+      "hole_rate": 0.055,
+      "success": 0.035
+    },
+    {
+      "policy": 0,
+      "slip": 0.34,
+      "cond": "mask_defer",
+      "hole_rate": 0.66,
+      "success": 0.115
+    },
+    {
+      "policy": 0,
+      "slip": 0.34,
+      "cond": "asra_g1",
+      "hole_rate": 0.985,
+      "success": 0.0
+    },
+    {
+      "policy": 0,
+      "slip": 0.34,
+      "cond": "asra_g3",
+      "hole_rate": 0.915,
+      "success": 0.0
+    },
+    {
+      "policy": 0,
+      "slip": 0.34,
+      "cond": "asra_g6",
+      "hole_rate": 0.7,
+      "success": 0.005
+    },
+    {
+      "policy": 1,
+      "slip": 0.1,
+      "cond": "raw",
+      "hole_rate": 0.005,
+      "success": 0.995
+    },
+    {
+      "policy": 1,
+      "slip": 0.1,
+      "cond": "override",
+      "hole_rate": 0.0,
+      "success": 0.95
+    },
+    {
+      "policy": 1,
+      "slip": 0.1,
+      "cond": "mask_defer",
+      "hole_rate": 0.005,
+      "success": 0.995
+    },
+    {
+      "policy": 1,
+      "slip": 0.1,
+      "cond": "asra_g1",
+      "hole_rate": 0.005,
+      "success": 0.995
+    },
+    {
+      "policy": 1,
+      "slip": 0.1,
+      "cond": "asra_g3",
+      "hole_rate": 0.005,
+      "success": 0.995
+    },
+    {
+      "policy": 1,
+      "slip": 0.1,
+      "cond": "asra_g6",
+      "hole_rate": 0.005,
+      "success": 0.995
+    },
+    {
+      "policy": 1,
+      "slip": 0.2,
+      "cond": "raw",
+      "hole_rate": 0.085,
+      "success": 0.915
+    },
+    {
+      "policy": 1,
+      "slip": 0.2,
+      "cond": "override",
+      "hole_rate": 0.005,
+      "success": 0.93
+    },
+    {
+      "policy": 1,
+      "slip": 0.2,
+      "cond": "mask_defer",
+      "hole_rate": 0.13,
+      "success": 0.805
+    },
+    {
+      "policy": 1,
+      "slip": 0.2,
+      "cond": "asra_g1",
+      "hole_rate": 0.085,
+      "success": 0.91
+    },
+    {
+      "policy": 1,
+      "slip": 0.2,
+      "cond": "asra_g3",
+      "hole_rate": 0.09,
+      "success": 0.905
+    },
+    {
+      "policy": 1,
+      "slip": 0.2,
+      "cond": "asra_g6",
+      "hole_rate": 0.125,
+      "success": 0.87
+    },
+    {
+      "policy": 1,
+      "slip": 0.34,
+      "cond": "raw",
+      "hole_rate": 0.25,
+      "success": 0.71
+    },
+    {
+      "policy": 1,
+      "slip": 0.34,
+      "cond": "override",
+      "hole_rate": 0.02,
+      "success": 0.66
+    },
+    {
+      "policy": 1,
+      "slip": 0.34,
+      "cond": "mask_defer",
+      "hole_rate": 0.375,
+      "success": 0.53
+    },
+    {
+      "policy": 1,
+      "slip": 0.34,
+      "cond": "asra_g1",
+      "hole_rate": 0.255,
+      "success": 0.705
+    },
+    {
+      "policy": 1,
+      "slip": 0.34,
+      "cond": "asra_g3",
+      "hole_rate": 0.24,
+      "success": 0.725
+    },
+    {
+      "policy": 1,
+      "slip": 0.34,
+      "cond": "asra_g6",
+      "hole_rate": 0.28,
+      "success": 0.67
+    },
+    {
+      "policy": 2,
+      "slip": 0.1,
+      "cond": "raw",
+      "hole_rate": 0.225,
+      "success": 0.775
+    },
+    {
+      "policy": 2,
+      "slip": 0.1,
+      "cond": "override",
+      "hole_rate": 0.015,
+      "success": 0.09
+    },
+    {
+      "policy": 2,
+      "slip": 0.1,
+      "cond": "mask_defer",
+      "hole_rate": 0.225,
+      "success": 0.775
+    },
+    {
+      "policy": 2,
+      "slip": 0.1,
+      "cond": "asra_g1",
+      "hole_rate": 0.225,
+      "success": 0.775
+    },
+    {
+      "policy": 2,
+      "slip": 0.1,
+      "cond": "asra_g3",
+      "hole_rate": 0.225,
+      "success": 0.775
+    },
+    {
+      "policy": 2,
+      "slip": 0.1,
+      "cond": "asra_g6",
+      "hole_rate": 0.225,
+      "success": 0.775
+    },
+    {
+      "policy": 2,
+      "slip": 0.2,
+      "cond": "raw",
+      "hole_rate": 0.4,
+      "success": 0.6
+    },
+    {
+      "policy": 2,
+      "slip": 0.2,
+      "cond": "override",
+      "hole_rate": 0.035,
+      "success": 0.255
+    },
+    {
+      "policy": 2,
+      "slip": 0.2,
+      "cond": "mask_defer",
+      "hole_rate": 0.39,
+      "success": 0.0
+    },
+    {
+      "policy": 2,
+      "slip": 0.2,
+      "cond": "asra_g1",
+      "hole_rate": 0.42,
+      "success": 0.58
+    },
+    {
+      "policy": 2,
+      "slip": 0.2,
+      "cond": "asra_g3",
+      "hole_rate": 0.42,
+      "success": 0.58
+    },
+    {
+      "policy": 2,
+      "slip": 0.2,
+      "cond": "asra_g6",
+      "hole_rate": 0.415,
+      "success": 0.585
+    },
+    {
+      "policy": 2,
+      "slip": 0.34,
+      "cond": "raw",
+      "hole_rate": 0.62,
+      "success": 0.38
+    },
+    {
+      "policy": 2,
+      "slip": 0.34,
+      "cond": "override",
+      "hole_rate": 0.18,
+      "success": 0.325
+    },
+    {
+      "policy": 2,
+      "slip": 0.34,
+      "cond": "mask_defer",
+      "hole_rate": 0.725,
+      "success": 0.0
+    },
+    {
+      "policy": 2,
+      "slip": 0.34,
+      "cond": "asra_g1",
+      "hole_rate": 0.625,
+      "success": 0.375
+    },
+    {
+      "policy": 2,
+      "slip": 0.34,
+      "cond": "asra_g3",
+      "hole_rate": 0.67,
+      "success": 0.33
+    },
+    {
+      "policy": 2,
+      "slip": 0.34,
+      "cond": "asra_g6",
+      "hole_rate": 0.69,
+      "success": 0.31
+    },
+    {
+      "policy": 3,
+      "slip": 0.1,
+      "cond": "raw",
+      "hole_rate": 1.0,
+      "success": 0.0
+    },
+    {
+      "policy": 3,
+      "slip": 0.1,
+      "cond": "override",
+      "hole_rate": 0.595,
+      "success": 0.0
+    },
+    {
+      "policy": 3,
+      "slip": 0.1,
+      "cond": "mask_defer",
+      "hole_rate": 1.0,
+      "success": 0.0
+    },
+    {
+      "policy": 3,
+      "slip": 0.1,
+      "cond": "asra_g1",
+      "hole_rate": 1.0,
+      "success": 0.0
+    },
+    {
+      "policy": 3,
+      "slip": 0.1,
+      "cond": "asra_g3",
+      "hole_rate": 0.975,
+      "success": 0.01
+    },
+    {
+      "policy": 3,
+      "slip": 0.1,
+      "cond": "asra_g6",
+      "hole_rate": 0.905,
+      "success": 0.0
+    },
+    {
+      "policy": 3,
+      "slip": 0.2,
+      "cond": "raw",
+      "hole_rate": 1.0,
+      "success": 0.0
+    },
+    {
+      "policy": 3,
+      "slip": 0.2,
+      "cond": "override",
+      "hole_rate": 0.765,
+      "success": 0.0
+    },
+    {
+      "policy": 3,
+      "slip": 0.2,
+      "cond": "mask_defer",
+      "hole_rate": 1.0,
+      "success": 0.0
+    },
+    {
+      "policy": 3,
+      "slip": 0.2,
+      "cond": "asra_g1",
+      "hole_rate": 1.0,
+      "success": 0.0
+    },
+    {
+      "policy": 3,
+      "slip": 0.2,
+      "cond": "asra_g3",
+      "hole_rate": 1.0,
+      "success": 0.0
+    },
+    {
+      "policy": 3,
+      "slip": 0.2,
+      "cond": "asra_g6",
+      "hole_rate": 0.885,
+      "success": 0.0
+    },
+    {
+      "policy": 3,
+      "slip": 0.34,
+      "cond": "raw",
+      "hole_rate": 1.0,
+      "success": 0.0
+    },
+    {
+      "policy": 3,
+      "slip": 0.34,
+      "cond": "override",
+      "hole_rate": 0.815,
+      "success": 0.005
+    },
+    {
+      "policy": 3,
+      "slip": 0.34,
+      "cond": "mask_defer",
+      "hole_rate": 1.0,
+      "success": 0.0
+    },
+    {
+      "policy": 3,
+      "slip": 0.34,
+      "cond": "asra_g1",
+      "hole_rate": 1.0,
+      "success": 0.0
+    },
+    {
+      "policy": 3,
+      "slip": 0.34,
+      "cond": "asra_g3",
+      "hole_rate": 0.99,
+      "success": 0.0
+    },
+    {
+      "policy": 3,
+      "slip": 0.34,
+      "cond": "asra_g6",
+      "hole_rate": 0.855,
+      "success": 0.005
+    },
+    {
+      "policy": 4,
+      "slip": 0.1,
+      "cond": "raw",
+      "hole_rate": 0.055,
+      "success": 0.945
+    },
+    {
+      "policy": 4,
+      "slip": 0.1,
+      "cond": "override",
+      "hole_rate": 0.0,
+      "success": 0.465
+    },
+    {
+      "policy": 4,
+      "slip": 0.1,
+      "cond": "mask_defer",
+      "hole_rate": 0.055,
+      "success": 0.945
+    },
+    {
+      "policy": 4,
+      "slip": 0.1,
+      "cond": "asra_g1",
+      "hole_rate": 0.055,
+      "success": 0.945
+    },
+    {
+      "policy": 4,
+      "slip": 0.1,
+      "cond": "asra_g3",
+      "hole_rate": 0.055,
+      "success": 0.945
+    },
+    {
+      "policy": 4,
+      "slip": 0.1,
+      "cond": "asra_g6",
+      "hole_rate": 0.055,
+      "success": 0.945
+    },
+    {
+      "policy": 4,
+      "slip": 0.2,
+      "cond": "raw",
+      "hole_rate": 0.145,
+      "success": 0.855
+    },
+    {
+      "policy": 4,
+      "slip": 0.2,
+      "cond": "override",
+      "hole_rate": 0.0,
+      "success": 0.62
+    },
+    {
+      "policy": 4,
+      "slip": 0.2,
+      "cond": "mask_defer",
+      "hole_rate": 0.96,
+      "success": 0.04
+    },
+    {
+      "policy": 4,
+      "slip": 0.2,
+      "cond": "asra_g1",
+      "hole_rate": 0.155,
+      "success": 0.845
+    },
+    {
+      "policy": 4,
+      "slip": 0.2,
+      "cond": "asra_g3",
+      "hole_rate": 0.19,
+      "success": 0.81
+    },
+    {
+      "policy": 4,
+      "slip": 0.2,
+      "cond": "asra_g6",
+      "hole_rate": 0.25,
+      "success": 0.75
+    },
+    {
+      "policy": 4,
+      "slip": 0.34,
+      "cond": "raw",
+      "hole_rate": 0.315,
+      "success": 0.66
+    },
+    {
+      "policy": 4,
+      "slip": 0.34,
+      "cond": "override",
+      "hole_rate": 0.0,
+      "success": 0.495
+    },
+    {
+      "policy": 4,
+      "slip": 0.34,
+      "cond": "mask_defer",
+      "hole_rate": 0.925,
+      "success": 0.065
+    },
+    {
+      "policy": 4,
+      "slip": 0.34,
+      "cond": "asra_g1",
+      "hole_rate": 0.32,
+      "success": 0.655
+    },
+    {
+      "policy": 4,
+      "slip": 0.34,
+      "cond": "asra_g3",
+      "hole_rate": 0.355,
+      "success": 0.625
+    },
+    {
+      "policy": 4,
+      "slip": 0.34,
+      "cond": "asra_g6",
+      "hole_rate": 0.33,
+      "success": 0.645
+    },
+    {
+      "policy": 5,
+      "slip": 0.1,
+      "cond": "raw",
+      "hole_rate": 1.0,
+      "success": 0.0
+    },
+    {
+      "policy": 5,
+      "slip": 0.1,
+      "cond": "override",
+      "hole_rate": 0.0,
+      "success": 0.0
+    },
+    {
+      "policy": 5,
+      "slip": 0.1,
+      "cond": "mask_defer",
+      "hole_rate": 0.025,
+      "success": 0.0
+    },
+    {
+      "policy": 5,
+      "slip": 0.1,
+      "cond": "asra_g1",
+      "hole_rate": 1.0,
+      "success": 0.0
+    },
+    {
+      "policy": 5,
+      "slip": 0.1,
+      "cond": "asra_g3",
+      "hole_rate": 0.895,
+      "success": 0.0
+    },
+    {
+      "policy": 5,
+      "slip": 0.1,
+      "cond": "asra_g6",
+      "hole_rate": 0.015,
+      "success": 0.0
+    },
+    {
+      "policy": 5,
+      "slip": 0.2,
+      "cond": "raw",
+      "hole_rate": 1.0,
+      "success": 0.0
+    },
+    {
+      "policy": 5,
+      "slip": 0.2,
+      "cond": "override",
+      "hole_rate": 0.01,
+      "success": 0.0
+    },
+    {
+      "policy": 5,
+      "slip": 0.2,
+      "cond": "mask_defer",
+      "hole_rate": 0.15,
+      "success": 0.0
+    },
+    {
+      "policy": 5,
+      "slip": 0.2,
+      "cond": "asra_g1",
+      "hole_rate": 1.0,
+      "success": 0.0
+    },
+    {
+      "policy": 5,
+      "slip": 0.2,
+      "cond": "asra_g3",
+      "hole_rate": 0.855,
+      "success": 0.005
+    },
+    {
+      "policy": 5,
+      "slip": 0.2,
+      "cond": "asra_g6",
+      "hole_rate": 0.05,
+      "success": 0.0
+    },
+    {
+      "policy": 5,
+      "slip": 0.34,
+      "cond": "raw",
+      "hole_rate": 1.0,
+      "success": 0.0
+    },
+    {
+      "policy": 5,
+      "slip": 0.34,
+      "cond": "override",
+      "hole_rate": 0.06,
+      "success": 0.0
+    },
+    {
+      "policy": 5,
+      "slip": 0.34,
+      "cond": "mask_defer",
+      "hole_rate": 0.335,
+      "success": 0.005
+    },
+    {
+      "policy": 5,
+      "slip": 0.34,
+      "cond": "asra_g1",
+      "hole_rate": 1.0,
+      "success": 0.0
+    },
+    {
+      "policy": 5,
+      "slip": 0.34,
+      "cond": "asra_g3",
+      "hole_rate": 0.935,
+      "success": 0.0
+    },
+    {
+      "policy": 5,
+      "slip": 0.34,
+      "cond": "asra_g6",
+      "hole_rate": 0.755,
+      "success": 0.0
+    },
+    {
+      "policy": 6,
+      "slip": 0.1,
+      "cond": "raw",
+      "hole_rate": 0.055,
+      "success": 0.945
+    },
+    {
+      "policy": 6,
+      "slip": 0.1,
+      "cond": "override",
+      "hole_rate": 0.0,
+      "success": 0.39
+    },
+    {
+      "policy": 6,
+      "slip": 0.1,
+      "cond": "mask_defer",
+      "hole_rate": 0.055,
+      "success": 0.945
+    },
+    {
+      "policy": 6,
+      "slip": 0.1,
+      "cond": "asra_g1",
+      "hole_rate": 0.055,
+      "success": 0.945
+    },
+    {
+      "policy": 6,
+      "slip": 0.1,
+      "cond": "asra_g3",
+      "hole_rate": 0.055,
+      "success": 0.945
+    },
+    {
+      "policy": 6,
+      "slip": 0.1,
+      "cond": "asra_g6",
+      "hole_rate": 0.055,
+      "success": 0.945
+    },
+    {
+      "policy": 6,
+      "slip": 0.2,
+      "cond": "raw",
+      "hole_rate": 0.135,
+      "success": 0.865
+    },
+    {
+      "policy": 6,
+      "slip": 0.2,
+      "cond": "override",
+      "hole_rate": 0.005,
+      "success": 0.535
+    },
+    {
+      "policy": 6,
+      "slip": 0.2,
+      "cond": "mask_defer",
+      "hole_rate": 0.94,
+      "success": 0.06
+    },
+    {
+      "policy": 6,
+      "slip": 0.2,
+      "cond": "asra_g1",
+      "hole_rate": 0.135,
+      "success": 0.865
+    },
+    {
+      "policy": 6,
+      "slip": 0.2,
+      "cond": "asra_g3",
+      "hole_rate": 0.14,
+      "success": 0.86
+    },
+    {
+      "policy": 6,
+      "slip": 0.2,
+      "cond": "asra_g6",
+      "hole_rate": 0.25,
+      "success": 0.75
+    },
+    {
+      "policy": 6,
+      "slip": 0.34,
+      "cond": "raw",
+      "hole_rate": 0.4,
+      "success": 0.59
+    },
+    {
+      "policy": 6,
+      "slip": 0.34,
+      "cond": "override",
+      "hole_rate": 0.075,
+      "success": 0.525
+    },
+    {
+      "policy": 6,
+      "slip": 0.34,
+      "cond": "mask_defer",
+      "hole_rate": 0.925,
+      "success": 0.075
+    },
+    {
+      "policy": 6,
+      "slip": 0.34,
+      "cond": "asra_g1",
+      "hole_rate": 0.385,
+      "success": 0.6
+    },
+    {
+      "policy": 6,
+      "slip": 0.34,
+      "cond": "asra_g3",
+      "hole_rate": 0.435,
+      "success": 0.56
+    },
+    {
+      "policy": 6,
+      "slip": 0.34,
+      "cond": "asra_g6",
+      "hole_rate": 0.465,
+      "success": 0.535
+    },
+    {
+      "policy": 7,
+      "slip": 0.1,
+      "cond": "raw",
+      "hole_rate": 0.175,
+      "success": 0.825
+    },
+    {
+      "policy": 7,
+      "slip": 0.1,
+      "cond": "override",
+      "hole_rate": 0.015,
+      "success": 0.085
+    },
+    {
+      "policy": 7,
+      "slip": 0.1,
+      "cond": "mask_defer",
+      "hole_rate": 0.175,
+      "success": 0.825
+    },
+    {
+      "policy": 7,
+      "slip": 0.1,
+      "cond": "asra_g1",
+      "hole_rate": 0.175,
+      "success": 0.825
+    },
+    {
+      "policy": 7,
+      "slip": 0.1,
+      "cond": "asra_g3",
+      "hole_rate": 0.175,
+      "success": 0.825
+    },
+    {
+      "policy": 7,
+      "slip": 0.1,
+      "cond": "asra_g6",
+      "hole_rate": 0.175,
+      "success": 0.825
+    },
+    {
+      "policy": 7,
+      "slip": 0.2,
+      "cond": "raw",
+      "hole_rate": 0.305,
+      "success": 0.695
+    },
+    {
+      "policy": 7,
+      "slip": 0.2,
+      "cond": "override",
+      "hole_rate": 0.02,
+      "success": 0.2
+    },
+    {
+      "policy": 7,
+      "slip": 0.2,
+      "cond": "mask_defer",
+      "hole_rate": 0.985,
+      "success": 0.015
+    },
+    {
+      "policy": 7,
+      "slip": 0.2,
+      "cond": "asra_g1",
+      "hole_rate": 0.315,
+      "success": 0.685
+    },
+    {
+      "policy": 7,
+      "slip": 0.2,
+      "cond": "asra_g3",
+      "hole_rate": 0.315,
+      "success": 0.685
+    },
+    {
+      "policy": 7,
+      "slip": 0.2,
+      "cond": "asra_g6",
+      "hole_rate": 0.33,
+      "success": 0.67
+    },
+    {
+      "policy": 7,
+      "slip": 0.34,
+      "cond": "raw",
+      "hole_rate": 0.58,
+      "success": 0.405
+    },
+    {
+      "policy": 7,
+      "slip": 0.34,
+      "cond": "override",
+      "hole_rate": 0.07,
+      "success": 0.275
+    },
+    {
+      "policy": 7,
+      "slip": 0.34,
+      "cond": "mask_defer",
+      "hole_rate": 0.975,
+      "success": 0.02
+    },
+    {
+      "policy": 7,
+      "slip": 0.34,
+      "cond": "asra_g1",
+      "hole_rate": 0.58,
+      "success": 0.405
+    },
+    {
+      "policy": 7,
+      "slip": 0.34,
+      "cond": "asra_g3",
+      "hole_rate": 0.555,
+      "success": 0.42
+    },
+    {
+      "policy": 7,
+      "slip": 0.34,
+      "cond": "asra_g6",
+      "hole_rate": 0.55,
+      "success": 0.42
+    },
+    {
+      "policy": 8,
+      "slip": 0.1,
+      "cond": "raw",
+      "hole_rate": 0.175,
+      "success": 0.825
+    },
+    {
+      "policy": 8,
+      "slip": 0.1,
+      "cond": "override",
+      "hole_rate": 0.12,
+      "success": 0.0
+    },
+    {
+      "policy": 8,
+      "slip": 0.1,
+      "cond": "mask_defer",
+      "hole_rate": 0.945,
+      "success": 0.055
+    },
+    {
+      "policy": 8,
+      "slip": 0.1,
+      "cond": "asra_g1",
+      "hole_rate": 0.175,
+      "success": 0.825
+    },
+    {
+      "policy": 8,
+      "slip": 0.1,
+      "cond": "asra_g3",
+      "hole_rate": 0.175,
+      "success": 0.825
+    },
+    {
+      "policy": 8,
+      "slip": 0.1,
+      "cond": "asra_g6",
+      "hole_rate": 0.17,
+      "success": 0.83
+    },
+    {
+      "policy": 8,
+      "slip": 0.2,
+      "cond": "raw",
+      "hole_rate": 0.305,
+      "success": 0.695
+    },
+    {
+      "policy": 8,
+      "slip": 0.2,
+      "cond": "override",
+      "hole_rate": 0.325,
+      "success": 0.025
+    },
+    {
+      "policy": 8,
+      "slip": 0.2,
+      "cond": "mask_defer",
+      "hole_rate": 0.92,
+      "success": 0.0
+    },
+    {
+      "policy": 8,
+      "slip": 0.2,
+      "cond": "asra_g1",
+      "hole_rate": 0.305,
+      "success": 0.695
+    },
+    {
+      "policy": 8,
+      "slip": 0.2,
+      "cond": "asra_g3",
+      "hole_rate": 0.305,
+      "success": 0.695
+    },
+    {
+      "policy": 8,
+      "slip": 0.2,
+      "cond": "asra_g6",
+      "hole_rate": 0.3,
+      "success": 0.7
+    },
+    {
+      "policy": 8,
+      "slip": 0.34,
+      "cond": "raw",
+      "hole_rate": 0.58,
+      "success": 0.415
+    },
+    {
+      "policy": 8,
+      "slip": 0.34,
+      "cond": "override",
+      "hole_rate": 0.5,
+      "success": 0.08
+    },
+    {
+      "policy": 8,
+      "slip": 0.34,
+      "cond": "mask_defer",
+      "hole_rate": 0.975,
+      "success": 0.01
+    },
+    {
+      "policy": 8,
+      "slip": 0.34,
+      "cond": "asra_g1",
+      "hole_rate": 0.58,
+      "success": 0.415
+    },
+    {
+      "policy": 8,
+      "slip": 0.34,
+      "cond": "asra_g3",
+      "hole_rate": 0.59,
+      "success": 0.4
+    },
+    {
+      "policy": 8,
+      "slip": 0.34,
+      "cond": "asra_g6",
+      "hole_rate": 0.58,
+      "success": 0.41
+    },
+    {
+      "policy": 9,
+      "slip": 0.1,
+      "cond": "raw",
+      "hole_rate": 0.095,
+      "success": 0.9
+    },
+    {
+      "policy": 9,
+      "slip": 0.1,
+      "cond": "override",
+      "hole_rate": 0.0,
+      "success": 0.015
+    },
+    {
+      "policy": 9,
+      "slip": 0.1,
+      "cond": "mask_defer",
+      "hole_rate": 0.1,
+      "success": 0.895
+    },
+    {
+      "policy": 9,
+      "slip": 0.1,
+      "cond": "asra_g1",
+      "hole_rate": 0.095,
+      "success": 0.9
+    },
+    {
+      "policy": 9,
+      "slip": 0.1,
+      "cond": "asra_g3",
+      "hole_rate": 0.1,
+      "success": 0.895
+    },
+    {
+      "policy": 9,
+      "slip": 0.1,
+      "cond": "asra_g6",
+      "hole_rate": 0.1,
+      "success": 0.895
+    },
+    {
+      "policy": 9,
+      "slip": 0.2,
+      "cond": "raw",
+      "hole_rate": 0.27,
+      "success": 0.715
+    },
+    {
+      "policy": 9,
+      "slip": 0.2,
+      "cond": "override",
+      "hole_rate": 0.0,
+      "success": 0.09
+    },
+    {
+      "policy": 9,
+      "slip": 0.2,
+      "cond": "mask_defer",
+      "hole_rate": 0.785,
+      "success": 0.0
+    },
+    {
+      "policy": 9,
+      "slip": 0.2,
+      "cond": "asra_g1",
+      "hole_rate": 0.27,
+      "success": 0.715
+    },
+    {
+      "policy": 9,
+      "slip": 0.2,
+      "cond": "asra_g3",
+      "hole_rate": 0.255,
+      "success": 0.72
+    },
+    {
+      "policy": 9,
+      "slip": 0.2,
+      "cond": "asra_g6",
+      "hole_rate": 0.255,
+      "success": 0.72
+    },
+    {
+      "policy": 9,
+      "slip": 0.34,
+      "cond": "raw",
+      "hole_rate": 0.53,
+      "success": 0.435
+    },
+    {
+      "policy": 9,
+      "slip": 0.34,
+      "cond": "override",
+      "hole_rate": 0.0,
+      "success": 0.125
+    },
+    {
+      "policy": 9,
+      "slip": 0.34,
+      "cond": "mask_defer",
+      "hole_rate": 0.85,
+      "success": 0.0
+    },
+    {
+      "policy": 9,
+      "slip": 0.34,
+      "cond": "asra_g1",
+      "hole_rate": 0.55,
+      "success": 0.42
+    },
+    {
+      "policy": 9,
+      "slip": 0.34,
+      "cond": "asra_g3",
+      "hole_rate": 0.515,
+      "success": 0.44
+    },
+    {
+      "policy": 9,
+      "slip": 0.34,
+      "cond": "asra_g6",
+      "hole_rate": 0.485,
+      "success": 0.445
+    },
+    {
+      "policy": 10,
+      "slip": 0.1,
+      "cond": "raw",
+      "hole_rate": 1.0,
+      "success": 0.0
+    },
+    {
+      "policy": 10,
+      "slip": 0.1,
+      "cond": "override",
+      "hole_rate": 0.01,
+      "success": 0.0
+    },
+    {
+      "policy": 10,
+      "slip": 0.1,
+      "cond": "mask_defer",
+      "hole_rate": 0.285,
+      "success": 0.005
+    },
+    {
+      "policy": 10,
+      "slip": 0.1,
+      "cond": "asra_g1",
+      "hole_rate": 1.0,
+      "success": 0.0
+    },
+    {
+      "policy": 10,
+      "slip": 0.1,
+      "cond": "asra_g3",
+      "hole_rate": 0.86,
+      "success": 0.0
+    },
+    {
+      "policy": 10,
+      "slip": 0.1,
+      "cond": "asra_g6",
+      "hole_rate": 0.07,
+      "success": 0.0
+    },
+    {
+      "policy": 10,
+      "slip": 0.2,
+      "cond": "raw",
+      "hole_rate": 1.0,
+      "success": 0.0
+    },
+    {
+      "policy": 10,
+      "slip": 0.2,
+      "cond": "override",
+      "hole_rate": 0.07,
+      "success": 0.0
+    },
+    {
+      "policy": 10,
+      "slip": 0.2,
+      "cond": "mask_defer",
+      "hole_rate": 0.755,
+      "success": 0.0
+    },
+    {
+      "policy": 10,
+      "slip": 0.2,
+      "cond": "asra_g1",
+      "hole_rate": 1.0,
+      "success": 0.0
+    },
+    {
+      "policy": 10,
+      "slip": 0.2,
+      "cond": "asra_g3",
+      "hole_rate": 0.83,
+      "success": 0.0
+    },
+    {
+      "policy": 10,
+      "slip": 0.2,
+      "cond": "asra_g6",
+      "hole_rate": 0.07,
+      "success": 0.015
+    },
+    {
+      "policy": 10,
+      "slip": 0.34,
+      "cond": "raw",
+      "hole_rate": 0.99,
+      "success": 0.01
+    },
+    {
+      "policy": 10,
+      "slip": 0.34,
+      "cond": "override",
+      "hole_rate": 0.255,
+      "success": 0.02
+    },
+    {
+      "policy": 10,
+      "slip": 0.34,
+      "cond": "mask_defer",
+      "hole_rate": 0.925,
+      "success": 0.005
+    },
+    {
+      "policy": 10,
+      "slip": 0.34,
+      "cond": "asra_g1",
+      "hole_rate": 0.995,
+      "success": 0.005
+    },
+    {
+      "policy": 10,
+      "slip": 0.34,
+      "cond": "asra_g3",
+      "hole_rate": 0.94,
+      "success": 0.0
+    },
+    {
+      "policy": 10,
+      "slip": 0.34,
+      "cond": "asra_g6",
+      "hole_rate": 0.725,
+      "success": 0.0
+    },
+    {
+      "policy": 11,
+      "slip": 0.1,
+      "cond": "raw",
+      "hole_rate": 0.165,
+      "success": 0.835
+    },
+    {
+      "policy": 11,
+      "slip": 0.1,
+      "cond": "override",
+      "hole_rate": 0.0,
+      "success": 0.085
+    },
+    {
+      "policy": 11,
+      "slip": 0.1,
+      "cond": "mask_defer",
+      "hole_rate": 0.145,
+      "success": 0.84
+    },
+    {
+      "policy": 11,
+      "slip": 0.1,
+      "cond": "asra_g1",
+      "hole_rate": 0.165,
+      "success": 0.835
+    },
+    {
+      "policy": 11,
+      "slip": 0.1,
+      "cond": "asra_g3",
+      "hole_rate": 0.165,
+      "success": 0.835
+    },
+    {
+      "policy": 11,
+      "slip": 0.1,
+      "cond": "asra_g6",
+      "hole_rate": 0.145,
+      "success": 0.83
+    },
+    {
+      "policy": 11,
+      "slip": 0.2,
+      "cond": "raw",
+      "hole_rate": 0.315,
+      "success": 0.685
+    },
+    {
+      "policy": 11,
+      "slip": 0.2,
+      "cond": "override",
+      "hole_rate": 0.02,
+      "success": 0.255
+    },
+    {
+      "policy": 11,
+      "slip": 0.2,
+      "cond": "mask_defer",
+      "hole_rate": 0.97,
+      "success": 0.005
+    },
+    {
+      "policy": 11,
+      "slip": 0.2,
+      "cond": "asra_g1",
+      "hole_rate": 0.29,
+      "success": 0.71
+    },
+    {
+      "policy": 11,
+      "slip": 0.2,
+      "cond": "asra_g3",
+      "hole_rate": 0.395,
+      "success": 0.6
+    },
+    {
+      "policy": 11,
+      "slip": 0.2,
+      "cond": "asra_g6",
+      "hole_rate": 0.34,
+      "success": 0.595
+    },
+    {
+      "policy": 11,
+      "slip": 0.34,
+      "cond": "raw",
+      "hole_rate": 0.53,
+      "success": 0.47
+    },
+    {
+      "policy": 11,
+      "slip": 0.34,
+      "cond": "override",
+      "hole_rate": 0.055,
+      "success": 0.31
+    },
+    {
+      "policy": 11,
+      "slip": 0.34,
+      "cond": "mask_defer",
+      "hole_rate": 0.93,
+      "success": 0.04
+    },
+    {
+      "policy": 11,
+      "slip": 0.34,
+      "cond": "asra_g1",
+      "hole_rate": 0.555,
+      "success": 0.44
+    },
+    {
+      "policy": 11,
+      "slip": 0.34,
+      "cond": "asra_g3",
+      "hole_rate": 0.665,
+      "success": 0.335
+    },
+    {
+      "policy": 11,
+      "slip": 0.34,
+      "cond": "asra_g6",
+      "hole_rate": 0.685,
+      "success": 0.305
+    }
+  ],
+  "n_policies": 12,
+  "n_ep": 200,
+  "size": 6,
+  "hole_p": 0.82,
+  "slips": [
+    0.1,
+    0.2,
+    0.34
+  ]
+}

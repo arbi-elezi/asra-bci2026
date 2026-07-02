@@ -1,0 +1,118 @@
+{
+  "scenario": "merge",
+  "base_path": "current_work\\base_policies\\scn_merge_seed0_final.pt",
+  "seeds": [
+    0
+  ],
+  "n_ep": 6,
+  "g_grid": [
+    0.0,
+    2.0,
+    8.0
+  ],
+  "ttc_grid": [
+    0.0,
+    2.0
+  ],
+  "pbrake_grid": [
+    0.0,
+    1.0
+  ],
+  "results": [
+    {
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "greedy",
+      "seed": 0,
+      "cr": 0.5,
+      "speed": 22.35050851634743
+    },
+    {
+      "method": "asra",
+      "gain": 2.0,
+      "decode": "greedy",
+      "seed": 0,
+      "cr": 0.5,
+      "speed": 22.35050851634743
+    },
+    {
+      "method": "asra",
+      "gain": 8.0,
+      "decode": "greedy",
+      "seed": 0,
+      "cr": 0.5,
+      "speed": 22.358996175377914
+    },
+    {
+      "method": "asra",
+      "gain": 0.0,
+      "decode": "sample",
+      "seed": 0,
+      "cr": 0.16666666666666666,
+      "speed": 24.4441401163737
+    },
+    {
+      "method": "baseline",
+      "kind": "noop_greedy",
+      "seed": 0,
+      "cr": 0.5,
+      "speed": 22.35050851634743
+    },
+    {
+      "method": "asra",
+      "gain": 2.0,
+      "decode": "sample",
+      "seed": 0,
+      "cr": 0.5,
+      "speed": 25.34603762131233
+    },
+    {
+      "method": "asra",
+      "gain": 8.0,
+      "decode": "sample",
+      "seed": 0,
+      "cr": 0.6666666666666666,
+      "speed": 24.538170104602816
+    },
+    {
+      "method": "baseline",
+      "kind": "noop_sample",
+      "seed": 0,
+      "cr": 0.6666666666666666,
+      "speed": 24.677224732413354
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 2.0,
+      "seed": 0,
+      "cr": 0.5,
+      "speed": 24.087657937073597
+    },
+    {
+      "method": "baseline",
+      "kind": "ttc_brake",
+      "ttc_k": 0.0,
+      "seed": 0,
+      "cr": 0.5,
+      "speed": 24.644394160486744
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 0.0,
+      "seed": 0,
+      "cr": 0.5,
+      "speed": 24.295525305353948
+    },
+    {
+      "method": "baseline",
+      "kind": "prob_brake",
+      "temp": 1.0,
+      "seed": 0,
+      "cr": 0.0,
+      "speed": 20.712121200561523
+    }
+  ],
+  "elapsed_s": 14.8727285861969
+}

@@ -1,0 +1,1 @@
+  [greedy] CR=0.725  speed=20.85  len=104.4  actions: maintain=0.00 accel=0.02 brake=0.98 lane=0.00

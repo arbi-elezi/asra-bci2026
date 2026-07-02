@@ -1,0 +1,3 @@
+rob_seed1_final.pt  (train CR~0.195, step 120832, vehicles 6)
+  [greedy] CR=0.025  speed=20.07  len=245.0  actions: maintain=0.00 accel=0.00 brake=1.00 lane=0.00
+  [sample] CR=0.175  speed=21.16  len=231.9  actions: maintain=0.12 accel=0.15 brake=0.58 lane=0.15

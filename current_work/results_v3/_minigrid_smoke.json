@@ -1,0 +1,81 @@
+{
+  "train": "MiniGrid-DistShift1-v0",
+  "deploy": "MiniGrid-DistShift2-v0",
+  "results": [
+    {
+      "raw": {
+        "lava_rate": 1.0,
+        "success": 0.0
+      },
+      "override": {
+        "lava_rate": 0.0,
+        "success": 0.0
+      },
+      "mask": {
+        "lava_rate": 0.0,
+        "success": 0.0
+      },
+      "shaped_g0.5": {
+        "lava_rate": 1.0,
+        "success": 0.0
+      },
+      "shaped_g1": {
+        "lava_rate": 1.0,
+        "success": 0.0
+      },
+      "shaped_g2": {
+        "lava_rate": 0.0,
+        "success": 0.0
+      },
+      "shaped_g4": {
+        "lava_rate": 0.0,
+        "success": 0.0
+      },
+      "shaped_g8": {
+        "lava_rate": 0.0,
+        "success": 0.0
+      }
+    },
+    {
+      "raw": {
+        "lava_rate": 0.0,
+        "success": 0.0
+      },
+      "override": {
+        "lava_rate": 0.0,
+        "success": 0.0
+      },
+      "mask": {
+        "lava_rate": 0.0,
+        "success": 0.0
+      },
+      "shaped_g0.5": {
+        "lava_rate": 0.0,
+        "success": 0.0
+      },
+      "shaped_g1": {
+        "lava_rate": 0.0,
+        "success": 0.0
+      },
+      "shaped_g2": {
+        "lava_rate": 0.0,
+        "success": 0.0
+      },
+      "shaped_g4": {
+        "lava_rate": 0.0,
+        "success": 0.0
+      },
+      "shaped_g8": {
+        "lava_rate": 0.0,
+        "success": 0.0
+      }
+    }
+  ],
+  "gains": [
+    0.5,
+    1.0,
+    2.0,
+    4.0,
+    8.0
+  ]
+}
