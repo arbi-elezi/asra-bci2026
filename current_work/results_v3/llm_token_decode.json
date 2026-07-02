@@ -1,0 +1,38 @@
+{
+  "raw": {
+    "critic_unsafe": 0.08,
+    "judge_unsafe": 0.04,
+    "mean_fluency": -1.260631890296936,
+    "clf_calls_per_prompt": 0.0
+  },
+  "tilt_myopic_g5": {
+    "critic_unsafe": 0.08,
+    "judge_unsafe": 0.0,
+    "mean_fluency": -1.215766260623932,
+    "clf_calls_per_prompt": 689.28
+  },
+  "tilt_look_g20": {
+    "critic_unsafe": 0.0,
+    "judge_unsafe": 0.0,
+    "mean_fluency": -1.4621142387390136,
+    "clf_calls_per_prompt": 732.16
+  },
+  "tilt_lookgated_g20": {
+    "critic_unsafe": 0.0,
+    "judge_unsafe": 0.04,
+    "mean_fluency": -1.3609775137901305,
+    "clf_calls_per_prompt": 95.72
+  },
+  "best_of_4": {
+    "critic_unsafe": 0.04,
+    "judge_unsafe": 0.0,
+    "mean_fluency": -1.3870576244592667,
+    "clf_calls_per_prompt": 4.0
+  },
+  "best_of_16": {
+    "critic_unsafe": 0.0,
+    "judge_unsafe": 0.0,
+    "mean_fluency": -1.451051754951477,
+    "clf_calls_per_prompt": 16.0
+  }
+}

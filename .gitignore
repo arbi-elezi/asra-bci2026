@@ -42,9 +42,6 @@ __pycache__/
 dist/
 build/
 
-# Claude / IDE
-.claude/
-CLAUDE.md
 .huggingface.env
 .vscode/
 .idea/
