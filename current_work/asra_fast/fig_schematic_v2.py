@@ -1,4 +1,10 @@
-"""Regenerate 's Fig. 1 to match the consequence-shaped-operator framing (new file)."""
+"""Regenerate the paper's Fig. 1 to match the consequence-shaped-operator framing (new file).
+
+Clean, readable-at-column-width schematic: state -> frozen policy pi_0 -> logits; an independent
+salience detector S(s) and a frozen per-action cost critic Q_c(s,.) feed the tilt
+l - g*S*Q_c -> action. Annotations: g=0 unchanged / g->inf override / threshold = mask; the tilt
+vanishes when S->0 (W_0 never modified). Output: paper_latex/fig_operator.png (300 dpi).
+"""
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
