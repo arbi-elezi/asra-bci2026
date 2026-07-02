@@ -1,0 +1,23 @@
+{
+  "A_salience_anticipates_braking": {
+    "n_frames": 371820,
+    "base_rate": 0.1945699532031628,
+    "auc_S": 0.5000526729365027,
+    "auc_invttc": 0.619250817042802,
+    "fire_rate": 0.001960626109407778,
+    "precision_at_S0": 0.2030178326474623,
+    "recall_at_S0": 0.0020457529891492157
+  },
+  "B_critic_ranking_transfer": {
+    "n": 20729,
+    "n_danger": 729,
+    "rank_acc_danger": 0.9890260631001372,
+    "rank_acc_danger_ci": [
+      0.9807956104252401,
+      0.9958847736625515
+    ],
+    "rank_acc_benign": 0.99085,
+    "spearman_S_brakeadv": -0.04442627613132978,
+    "spearman_p": 1.563185583191094e-10
+  }
+}

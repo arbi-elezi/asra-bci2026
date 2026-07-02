@@ -1,0 +1,94 @@
+{
+  "TinyLlama-1.1B": {
+    "BeaverTails": {
+      "n": 97,
+      "injection": {
+        "safe_ranked_last": 29,
+        "operator_surfaced": 0
+      },
+      "raw": {
+        "unsafe": 0.44329896907216493,
+        "useful": 0.31958762886597936,
+        "refuse": 0.23711340206185566
+      },
+      "filter": {
+        "unsafe": 0.0,
+        "useful": 0.5773195876288659,
+        "refuse": 0.422680412371134
+      },
+      "tilt_g5": {
+        "unsafe": 0.0,
+        "useful": 0.5773195876288659,
+        "refuse": 0.422680412371134
+      }
+    },
+    "PKU-SafeRLHF": {
+      "n": 150,
+      "injection": {
+        "safe_ranked_last": 29,
+        "operator_surfaced": 0
+      },
+      "raw": {
+        "unsafe": 0.2733333333333333,
+        "useful": 0.5466666666666666,
+        "refuse": 0.18
+      },
+      "filter": {
+        "unsafe": 0.0,
+        "useful": 0.7066666666666667,
+        "refuse": 0.29333333333333333
+      },
+      "tilt_g5": {
+        "unsafe": 0.0,
+        "useful": 0.7066666666666667,
+        "refuse": 0.29333333333333333
+      }
+    }
+  },
+  "open_llama_3b": {
+    "BeaverTails": {
+      "n": 97,
+      "injection": {
+        "safe_ranked_last": 25,
+        "operator_surfaced": 0
+      },
+      "raw": {
+        "unsafe": 0.4639175257731959,
+        "useful": 0.41237113402061853,
+        "refuse": 0.12371134020618557
+      },
+      "filter": {
+        "unsafe": 0.0,
+        "useful": 0.6494845360824743,
+        "refuse": 0.35051546391752575
+      },
+      "tilt_g5": {
+        "unsafe": 0.0,
+        "useful": 0.6494845360824743,
+        "refuse": 0.35051546391752575
+      }
+    },
+    "PKU-SafeRLHF": {
+      "n": 150,
+      "injection": {
+        "safe_ranked_last": 33,
+        "operator_surfaced": 0
+      },
+      "raw": {
+        "unsafe": 0.32666666666666666,
+        "useful": 0.46,
+        "refuse": 0.21333333333333335
+      },
+      "filter": {
+        "unsafe": 0.0,
+        "useful": 0.6333333333333333,
+        "refuse": 0.36666666666666664
+      },
+      "tilt_g5": {
+        "unsafe": 0.0,
+        "useful": 0.6333333333333333,
+        "refuse": 0.36666666666666664
+      }
+    }
+  }
+}
